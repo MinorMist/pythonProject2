@@ -1,0 +1,60 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>Fingerprint</title>
+</head>
+<STYLE>.button {
+  background-color: Olive;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {border-radius: 4px;}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+</STYLE>
+<body>
+    <h1>Fingerprint</h1>
+    <h2>SMILES: {{ smiles }}</h2>
+
+    <h3>Morgan Fingerprint</h3>
+    <p>{{ fingerprint }}</p>
+    <form method="POST" action="{% url 'download_morgan_csv' %}">
+        {% csrf_token %}
+        <button class="button button2" type="submit" >Download Morgan Fingerprint </button>
+
+    </form>
+
+    <h3>MACCS Fingerprint</h3>
+    <p>{{ maccs_fingerprint }}</p>
+    <form method="POST" action="{% url 'download_maccs_csv' %}">
+        {% csrf_token %}
+        <button class="button button2" type="submit" >Download MACCS Fingerprint </button>
+
+    </form>
+
+    <h3>Topological Torsion Fingerprint</h3>
+    <p>{{ torsion_fingerprint }}</p>
+    <form method="POST" action="{% url 'download_torsion_csv' %}">
+        {% csrf_token %}
+        <button class="button button2" type="submit" >Download Topological Torsion  </button>
+
+    </form>
+
+    <h3>RDKit Fingerprint</h3>
+    <p>{{ rdk_fingerprint }}</p>
+    <form method="POST" action="{% url 'download_rdk_csv' %}">
+        {% csrf_token %}
+        <button class="button button2" type="submit" >Download RDKit Fingerprint</button>
+
+    </form>
+</body>
+</html>
