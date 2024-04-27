@@ -13,6 +13,9 @@ import pandas as pd
 import numpy as np
 import csv
 
+def sample(request):
+    return render(request, 'myapp/sample.html',)
+
 
 ### CALCULATING DIFFERENT MOLECULAR DESCRIPTORS ######
 
@@ -184,7 +187,7 @@ def download(request):
                                  (Descriptors.MolLogP(mol) - 0.74) * (Descriptors.NumRotatableBonds(mol) - 0.007) * (
                                              Descriptors.MolWt(mol) < 5000) + 0.22,
                                  sum(EState.EStateIndices(mol)),
-                                 Descriptors.
+
                                  Descriptors.MolWt(mol) < 450,
 
 
@@ -362,7 +365,7 @@ def home(request):
 
 ##### PREDICTION ##############
 # Load the dataset containing SMILES and target values
-dataset = pd.read_csv('myapp/static/CSV/final.csv')
+dataset = pd.read_csv('myapp/static/csv/final.csv')
 
 # Separate the features (SMILES) and target values (Target) from the dataset
 X = dataset['SMILES']

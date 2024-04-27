@@ -42,7 +42,7 @@ urlpatterns = [
     path('download/torsion/', views.download_torsion_csv, name='download_torsion_csv'),
     path('download/rdk/',views.download_rdk_csv, name='download_rdk_csv'),
     path('', views.home, name='home'),
-    path('predict/', views.predict, name='predict')
-
+    path('predict/', views.predict, name='predict'),
+    path('sample/', views.sample, name='sample')
 ]
 
