@@ -93,8 +93,19 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
   display: none;
+}
+
+ul.nav li.dropdown:hover>ul.dropdown-menu {
+  display: block;
+}
+
+@media (min-width: 979px) {
+  ul.nav li.dropdown:hover>ul.dropdown-menu {
+    display: block;
+  }
 }
 
 hr {
@@ -12617,91 +12628,51 @@ fieldset:disabled .btn {
   font-size: 4.5rem;
 }
 
-header.masthead {
+.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("../../../../static/assets/img/drug-discovery.jpg") no-repeat center center;
+  background: url("../../../../static/assets/img/drug-discovery2.jpg") no-repeat center center fixed;
+  height: 90vh;
+  width: 100%;
+  display:flex;
   background-size: cover;
   background-attachment: fixed;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 0px;
+  align-items: center;
 }
 
-header.masthead:before {
-  content: "";
+.masthead::after {
   position: absolute;
-  background-color: #1c375e;
-  height: 100%;
+  content: "";
+  height: 90vh;
   width: 100%;
+  display: block;
+  background-color: #000;
+  opacity: .65;
   top: 0;
   left: 0;
-  opacity: 0.5;
+  z-index: 0;
 }
 
-header.masthead h1,
-header.masthead .h1 {
-  font-size: 2rem;
+.vismai-box{
+  max-width: fit-content;
+  margin-inline: auto;
 }
 
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-
-  header.masthead h1,
-  header.masthead .h1 {
-    font-size: 3rem;
-  }
-}
-
-.showcase .showcase-text {
-  padding: 3rem;
-}
-
-.showcase .showcase-img {
-  min-height: 30rem;
-  background-size: cover;
-}
-
-@media (min-width: 768px) {
-  .showcase .showcase-text {
-    padding: 7rem;
-  }
-}
-
-.testimonials {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-
-.testimonials .testimonial-item {
-  max-width: 18rem;
-}
-
-.testimonials .testimonial-item img {
-  max-width: 12rem;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
-}
-
-.call-to-action {
+.masthead>* {
+  z-index: 10;
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
 }
 
-.call-to-action:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+.vismai-style-main{
+  color:#babbbc;
+}
+
+.vismai-style{
+  color:white;
+}
+
+hr{
+  color: white;
 }
 
 footer.footer {
