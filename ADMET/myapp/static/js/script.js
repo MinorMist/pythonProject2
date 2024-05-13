@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 570) {
+        if (window.scrollY > 700) {
             document.getElementById('navbar_top').classList.add('fixed-top');
             // add padding top to show content behind navbar
             navbar_height = document.querySelector('.navbar').offsetHeight;
@@ -13,8 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-$(document).ready(function () {
-    $("#VismaiBtn").click(function () {
-        $('html, body').scrollTop($("#about").offset().top);
+function fill_sample_smile() {
+    document.getElementById("smilesTextarea").value = 'CC(CCC(=O)N)CN\nC1=CC=CC=C1';
+};
+
+$(document).ready(function() {
+    $('.dropdown-item').click(function() {
+      var targetId = $(this).data('target');
+      $('#' + targetId).button('toggle');
     });
-});
+  });
