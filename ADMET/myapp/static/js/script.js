@@ -17,9 +17,30 @@ function fill_sample_smile() {
     document.getElementById("smilesTextarea").value = 'CC(CCC(=O)N)CN\nC1=CC=CC=C1';
 };
 
-$(document).ready(function() {
-    $('.dropdown-item').click(function() {
-      var targetId = $(this).data('target');
-      $('#' + targetId).button('toggle');
-    });
-  });
+window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 7);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+
+function select_feature(rbid) {
+    smoothScroll(document.getElementById('feature'));
+    rbid.checked = true;
+};

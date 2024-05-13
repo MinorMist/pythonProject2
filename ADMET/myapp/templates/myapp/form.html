@@ -14,7 +14,9 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -35,10 +37,10 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
- {% load static %}
+{% load static %}
 
 <style>
-    /**
+  /**
 * Template Name: Green
 * Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
@@ -46,1944 +48,1964 @@
 * License: https://bootstrapmade.com/license/
 */
 
-/*--------------------------------------------------------------
+  /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color:Olive;
-}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: Olive;
+  }
 
-li {
-  float: left;
-}
+  li {
+    float: left;
+  }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
-li a:hover:not(.active) {
-  background-color: #111;
-}
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
 
-.active {
-  background-color: #0099FF;
-}
-.button {
-  background-color: Olive;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.button2 {border-radius: 4px;}
-body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
-}
+  .active {
+    background-color: #0099FF;
+  }
 
-a {
-  text-decoration: none;
-  color: #5cb874;
-}
+  .button {
+    background-color: Olive;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
 
-a:hover {
-  color: #80c792;
-  text-decoration: none;
-}
+  .button2 {
+    border-radius: 4px;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway", sans-serif;
-}
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+  }
 
-/*--------------------------------------------------------------
+  a {
+    text-decoration: none;
+    color: #5cb874;
+  }
+
+  a:hover {
+    color: #80c792;
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+  /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: 15px;
-  z-index: 996;
-  background: #5cb874;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  transition: all 0.4s;
-}
+  .back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #5cb874;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+  }
 
-.back-to-top i {
-  font-size: 24px;
-  color: #fff;
-  line-height: 0;
-}
+  .back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
 
-.back-to-top:hover {
-  background: #78c48c;
-  color: #fff;
-}
+  .back-to-top:hover {
+    background: #78c48c;
+    color: #fff;
+  }
 
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
+  .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
 
-/*--------------------------------------------------------------
+  /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
-#topbar {
-  background: #fbfbfb;
-  font-size: 15px;
-  height: 40px;
-  padding: 0;
-}
+  #topbar {
+    background: #fbfbfb;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+  }
 
-#topbar .contact-info a {
-  line-height: 0;
-  color: #444444;
-  transition: 0.3s;
-}
+  #topbar .contact-info a {
+    line-height: 0;
+    color: #444444;
+    transition: 0.3s;
+  }
 
-#topbar .contact-info a:hover {
-  color: #5cb874;
-}
+  #topbar .contact-info a:hover {
+    color: #5cb874;
+  }
 
-#topbar .contact-info i {
-  color: #5cb874;
-  line-height: 0;
-  margin-right: 5px;
-}
+  #topbar .contact-info i {
+    color: #5cb874;
+    line-height: 0;
+    margin-right: 5px;
+  }
 
-#topbar .contact-info .phone-icon {
-  margin-left: 15px;
-}
+  #topbar .contact-info .phone-icon {
+    margin-left: 15px;
+  }
 
-#topbar .social-links a {
-  color: #6f6f6f;
-  padding: 4px 12px;
-  display: inline-block;
-  line-height: 1px;
-  transition: 0.3s;
-}
+  #topbar .social-links a {
+    color: #6f6f6f;
+    padding: 4px 12px;
+    display: inline-block;
+    line-height: 1px;
+    transition: 0.3s;
+  }
 
-#topbar .social-links a:hover {
-  color: black;
-}
+  #topbar .social-links a:hover {
+    color: black;
+  }
 
-/*--------------------------------------------------------------
+  /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-#header {
-  background: #fff;
-  transition: all 0.5s;
-  z-index: 997;
-  height: 70px;
-}
+  #header {
+    background: #fff;
+    transition: all 0.5s;
+    z-index: 997;
+    height: 70px;
+  }
 
-#header.header-scrolled {
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
+  #header.header-scrolled {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
 
-#header .logo {
-  font-size: 50px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+  #header .logo {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
 
-#header .logo a {
-  color:Olive;
-;
-}
+  #header .logo a {
+    color: Olive;
+    ;
+  }
 
-#header .logo img {
-  max-height: 40px;
-}
+  #header .logo img {
+    max-height: 40px;
+  }
 
-.scrolled-offset {
-  margin-top: 70px;
-}
+  .scrolled-offset {
+    margin-top: 70px;
+  }
 
-/*--------------------------------------------------------------
+  /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/**
+  /**
 * Desktop Navigation
 */
-.navbar {
-  padding: 0;
-}
-
-.navbar ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  list-style: none;
-  align-items: center;
-}
-
-.navbar li {
-  position: relative;
-}
-
-.navbar a,
-.navbar a:focus {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0 10px 30px;
-  font-size: 15px;
-  color: white;
-  white-space: nowrap;
-  transition: 0.3s;
-}
-
-.navbar a i,
-.navbar a:focus i {
-  font-size: 12px;
-  line-height: 0;
-  margin-left: 5px;
-}
-
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
-.navbar li:hover>a {
-  color: #5cb874;
-}
-
-.navbar .getstarted,
-.navbar .getstarted:focus {
-  color: grey;
-  padding: 8px 25px;
-  margin-left: 30px;
-  border-radius: 4px;
-  border: 2px solid #5cb874;
-  transition: 0.3s;
-  font-size: 14px;
-}
-
-.navbar .getstarted:hover,
-.navbar .getstarted:focus:hover {
-  background: grey;
-  color:grey;
-}
-
-.navbar .dropdown ul {
-  display: block;
-  position: absolute;
-  left: 14px;
-  top: calc(100% + 30px);
-  margin: 0;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  background: white;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  transition: 0.3s;
-}
-
-.navbar .dropdown ul li {
-  min-width: 200px;
-}
-
-.navbar .dropdown ul a {
-  padding: 10px 20px;
-  text-transform: none;
-}
-
-.navbar .dropdown ul a i {
-  font-size: 12px;
-}
-
-.navbar .dropdown ul a:hover,
-.navbar .dropdown ul .active:hover,
-.navbar .dropdown ul li:hover>a {
-  color: #5cb874;
-}
-
-.navbar .dropdown:hover>ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
-}
-
-.navbar .dropdown .dropdown ul {
-  top: 0;
-  left: calc(100% - 30px);
-  visibility: hidden;
-}
-
-.navbar .dropdown .dropdown:hover>ul {
-  opacity: 1;
-  top: 0;
-  left: 100%;
-  visibility: visible;
-}
-
-@media (max-width: 1366px) {
-  .navbar .dropdown .dropdown ul {
-    left: -90%;
-  }
-
-  .navbar .dropdown .dropdown:hover>ul {
-    left: -100%;
-  }
-}
-
-/**
-* Mobile Navigation
-*/
-.mobile-nav-toggle {
-  color: #222222;
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
-  line-height: 0;
-  transition: 0.5s;
-}
-
-.mobile-nav-toggle.bi-x {
-  color: #fff;
-}
-
-@media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
+  .navbar {
+    padding: 0;
   }
 
   .navbar ul {
-    display: none;
-  }
-}
-
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(9, 9, 9, 0.9);
-  transition: 0.3s;
-  z-index: 999;
-}
-
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.navbar-mobile ul {
-  display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  background-color: #fff;
-  overflow-y: auto;
-  transition: 0.3s;
-}
-
-.navbar-mobile a,
-.navbar-mobile a:focus {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #222222;
-}
-
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
-  color: #5cb874;
-}
-
-.navbar-mobile .getstarted,
-.navbar-mobile .getstarted:focus {
-  margin: 15px;
-}
-
-.navbar-mobile .dropdown ul {
-  position: static;
-  display: none;
-  margin: 10px 20px;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 1;
-  visibility: visible;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
-
-.navbar-mobile .dropdown ul li {
-  min-width: 200px;
-}
-
-.navbar-mobile .dropdown ul a {
-  padding: 10px 20px;
-}
-
-.navbar-mobile .dropdown ul a i {
-  font-size: 12px;
-}
-
-.navbar-mobile .dropdown ul a:hover,
-.navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
-  color: #5cb874;
-}
-
-.navbar-mobile .dropdown>.dropdown-active {
-  display: block;
-}
-
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
-#hero {
-  width: 100%;
-  height: 70vh;
-  background-color: #FFF8DC;
-  overflow: hidden;
-  position: relative;
-}
-
-#hero .carousel,
-#hero .carousel-inner,
-#hero .carousel-item,
-#hero .carousel-item::before {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-#hero .carousel-item::before {
-  content: "";
-    background: white;
-}
-
-#hero .carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 50px;
-  right: 50px;
-}
-
-#hero .container {
-  text-align: center;
-}
-
-#hero h2 {
-  color:Olive;
-  margin-bottom: 20px;
-  font-size: 50px;
-  font-weight: bold;
-  f
-}
-#hero h6 {
-  color:Olive;
-  margin-bottom: 20px;
-  font-size: 50px;
-  font-weight: bold;
-  f
-}
-
-#hero p {
-  animation-delay: 0.4s;
-  margin: 0 auto 30px auto;
-  color:Olive;
-}
-
-#hero .carousel-inner .carousel-item {
-  transition-property: opacity;
-  background-position: center top;
-}
-
-#hero .carousel-inner .carousel-item,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
-  opacity: 0;
-}
-
-#hero .carousel-inner .active,
-#hero .carousel-inner .carousel-item-next.carousel-item-start,
-#hero .carousel-inner .carousel-item-prev.carousel-item-end {
-  opacity: 1;
-  transition: 0.5s;
-}
-
-#hero .carousel-control-next-icon,
-#hero .carousel-control-prev-icon {
-  background: none;
-  font-size: 30px;
-  line-height: 0;
-  width: auto;
-  height: auto;
-  background: #FFF8DC;
-  border-radius: 50px;
-  transition: 0.3s;
-  color: #FFF8DC;
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#hero .carousel-control-next-icon:hover,
-#hero .carousel-control-prev-icon:hover {
-  background: #FFF8DC;
-  color:#FFF8DC;
-}
-
-#hero .carousel-indicators li {
-  cursor: pointer;
-  background: #fff;
-  overflow: hidden;
-  border: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50px;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-#hero .carousel-indicators li.active {
-  opacity: 1;
-  background: #5cb874;
-}
-
-#hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 4px;
-  transition: 0.5s;
-  line-height: 1;
-  color: #fff;
-  animation-delay: 0.8s;
-  background: #5cb874;
-}
-
-#hero .btn-get-started:hover {
-  background: #6ec083;
-}
-
-@media (max-width: 992px) {
-  #hero {
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
   }
 
-  #hero .carousel-container {
-    top: 66px;
+  .navbar li {
+    position: relative;
   }
-}
 
-@media (max-width: 768px) {
-  #hero h2 {
-    font-size: 28px;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  #hero .carousel-control-prev,
-  #hero .carousel-control-next {
-    width: 5%;
-  }
-}
-
-@media (max-height: 500px) {
-  #hero {
-    height: 120vh;
-  }
-}
-
-/*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
-section {
-  padding: 60px 0;
-}
-
-.section-bg {
-  background-color: #f8fcf9;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.section-title h2::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 120px;
-  height: 1px;
-  background: #ddd;
-  bottom: 1px;
-  left: calc(50% - 60px);
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: Olive
-  ;
-  bottom: 0;
-  left: calc(50% - 20px);
-}
-
-.section-title p {
-  margin-bottom: 0;
-  font-size: 16px;
-  color:black;
-  text-align: center;
-
-
-}
-
-/*--------------------------------------------------------------
-# Featured Services
---------------------------------------------------------------*/
-.featured-services {
-  padding: 20px 0;
-}
-
-.featured-services .icon-box {
-  padding: 20px;
-}
-
-.featured-services .icon-box-bg {
-  background-image: linear-gradient(0deg, #222222 0%, #2f2f2f 50%, #222222 100%);
-}
-
-.featured-services .icon {
-  margin-bottom: 15px;
-}
-
-.featured-services .icon i {
-  color: #5cb874;
-  font-size: 42px;
-}
-
-.featured-services .title {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.featured-services .title a {
-  color: #222222;
-  transition: 0.3s;
-}
-
-.featured-services .icon-box:hover .title a {
-  color: #5cb874;
-}
-
-.featured-services .description {
-  line-height: 24px;
-  font-size: 14px;
-}
-
-/*--------------------------------------------------------------
-# About Us
---------------------------------------------------------------*/
-.about .content h3 {
-  font-weight: 700;
-  font-size: 28px;
-}
-
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  padding-bottom: 10px;
-}
-
-.about .content ul i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: Olive;
-}
-
-.about .content p:last-child {
-  margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Why Us
---------------------------------------------------------------*/
-.why-us {
-  padding: 0;
-}
-
-.why-us .row {
-  overflow: hidden;
-}
-
-.why-us .content-item {
-  padding: 40px;
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  margin: -1px;
-}
-
-.why-us .content-item span {
-  display: block;
-  font-size: 24px;
-  font-weight: 400;
-  color: #6ec083;
-}
-
-.why-us .content-item h4 {
-  font-size: 26px;
-  font-weight: 300;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.why-us .content-item p {
-  color: #aaaaaa;
-  font-size: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-@media (max-width: 768px) {
-  .why-us .content-item {
-    padding: 40px 0;
-  }
-}
-
-/*--------------------------------------------------------------
-# Our Clients
---------------------------------------------------------------*/
-.clients .swiper-slide img {
-  opacity: 0.5;
-  transition: 0.3s;
-}
-
-.clients .swiper-slide img:hover {
-  opacity: 1;
-}
-
-.clients .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #5cb874;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #5cb874;
-}
-
-/*--------------------------------------------------------------
-# Services
---------------------------------------------------------------*/
-.services .icon-box {
-  text-align: center;
-  padding: 70px 20px 80px 20px;
-  transition: all ease-in-out 0.3s;
-  background: #fff;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
-}
-
-.services .icon-box .icon {
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease-in-out 0.3s;
-  position: relative;
-}
-
-.services .icon-box .icon i {
-  font-size: 36px;
-  transition: 0.5s;
-  position: relative;
-}
-
-.services .icon-box .icon svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.services .icon-box .icon svg path {
-  transition: 0.5s;
-  fill: #f5f5f5;
-}
-
-.services .icon-box h4 {
-  font-weight: 600;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-}
-
-.services .icon-box h4 a {
-  color: #222222;
-  transition: ease-in-out 0.3s;
-}
-
-.services .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.services .icon-box:hover {
-  border-color: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
-}
-
-.services .iconbox-blue i {
-  color: #47aeff;
-}
-
-.services .iconbox-blue:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-blue:hover .icon path {
-  fill: #47aeff;
-}
-
-.services .iconbox-orange i {
-  color: #ffa76e;
-}
-
-.services .iconbox-orange:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-orange:hover .icon path {
-  fill: #ffa76e;
-}
-
-.services .iconbox-pink i {
-  color: #e80368;
-}
-
-.services .iconbox-pink:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-pink:hover .icon path {
-  fill: #e80368;
-}
-
-.services .iconbox-yellow i {
-  color: #ffbb2c;
-}
-
-.services .iconbox-yellow:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-yellow:hover .icon path {
-  fill: #ffbb2c;
-}
-
-.services .iconbox-red i {
-  color: #ff5828;
-}
-
-.services .iconbox-red:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-red:hover .icon path {
-  fill: #ff5828;
-}
-
-.services .iconbox-teal i {
-  color: #11dbcf;
-}
-
-.services .iconbox-teal:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-teal:hover .icon path {
-  fill: #11dbcf;
-}
-
-/*--------------------------------------------------------------
-# Cta
---------------------------------------------------------------*/
-.cta {
-  background: DarkSlateBlue;
-  padding: 80px 0;
-}
-
-.cta h3 {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.cta p {
-  color: #fff;
-}
-
-.cta .cta-btn {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 30px;
-  border-radius: 2px;
-  transition: 0.5s;
-  margin: 10px;
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 4px;
-}
-
-.cta .cta-btn:hover {
-  background: #fff;
-  color: #5cb874;
-}
-
-@media (max-width: 1024px) {
-  .cta {
-    background-attachment: scroll;
-  }
-}
-
-@media (min-width: 769px) {
-  .cta .cta-btn-container {
+  .navbar a,
+  .navbar a:focus {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-  }
-}
-
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
-
-.portfolio #portfolio-flters {
-  padding: 0;
-  margin: 0 auto 20px auto;
-  list-style: none;
-  text-align: center;
-}
-
-.portfolio #portfolio-flters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 8px 15px 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #444444;
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-  border-radius: 3px;
-}
-
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
-  color: #fff;
-  background: #5cb874;
-}
-
-.portfolio #portfolio-flters li:last-child {
-  margin-right: 0;
-}
-
-.portfolio .portfolio-wrap {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  background: rgba(34, 34, 34, 0.6);
-}
-
-.portfolio .portfolio-wrap::before {
-  content: "";
-  background: rgba(34, 34, 34, 0.6);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-
-.portfolio .portfolio-wrap img {
-  transition: all ease-in-out 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 20px;
-}
-
-.portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-}
-
-.portfolio .portfolio-wrap .portfolio-info p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-  font-style: italic;
-}
-
-.portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
-  margin: 0 5px 0 0;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #6ec083;
-}
-
-.portfolio .portfolio-wrap:hover::before {
-  opacity: 1;
-}
-
-.portfolio .portfolio-wrap:hover img {
-  transform: scale(1.2);
-}
-
-.portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-}
-
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #5cb874;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #5cb874;
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-}
-
-/*--------------------------------------------------------------
-# Team
---------------------------------------------------------------*/
-.team .member {
-  text-align: center;
-  margin-bottom: 20px;
-  box-shadow: 0px 0px 12px 0px rgba(34, 34, 34, 0.07);
-  padding: 30px 20px;
-  background: #fff;
-}
-
-.team .member img {
-  max-width: 60%;
-  border-radius: 50%;
-  margin: 0 0 30px 0;
-}
-
-.team .member h4 {
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 18px;
-}
-
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-.team .member p {
-  padding-top: 10px;
-  font-size: 14px;
-  font-style: italic;
-  color: #aaaaaa;
-}
-
-.team .member .social {
-  margin-top: 15px;
-}
-
-.team .member .social a {
-  color: #919191;
-  transition: 0.3s;
-}
-
-.team .member .social a:hover {
-  color: #5cb874;
-}
-
-.team .member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
-
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
-.contact .info {
-  border-top: 3px solid Olive;
-  border-bottom: 3px solid Olive;
-  padding: 30px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-}
-
-.contact .info i {
-  font-size: 20px;
-  color: #5cb874;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #eaf6ed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-}
-
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #222222;
-}
-
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #555555;
-}
-
-.contact .info .social-links {
-  padding-left: 60px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
-}
-
-.contact .info .social-links a:hover {
-  background: #5cb874;
-  color: #fff;
-}
-
-.contact .info .email:hover i,
-.contact .info .address:hover i,
-.contact .info .phone:hover i {
-  background: Olive;
-  color:Olive;
-}
-
-.contact .php-email-form {
-  width: 100%;
-  border-top: 3px solid #5cb874;
-  border-bottom: 3px solid #5cb874;
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-}
-
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  border-radius: 4px;
-}
-
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-  border-color: DarkSlateBlue;
-}
-
-.contact .php-email-form input {
-  height: 44px;
-}
-
-.contact .php-email-form textarea {
-  padding: 10px 12px;
-}
-
-.contact .php-email-form button[type=submit] {
-  background: #5cb874;
-  border: 0;
-  padding: 10px 24px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 4px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: #6ec083;
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap;
+    transition: 0.3s;
   }
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
-.breadcrumbs {
-  padding: 15px 0;
-  background: #fbfbfb;
-  min-height: 40px;
-}
-
-@media (max-width: 992px) {
-  .breadcrumbs {
-    margin-top: 66px;
-  }
-}
-
-.breadcrumbs h2 {
-  font-size: 28px;
-  font-weight: 300;
-}
-
-.breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-}
-
-.breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.breadcrumbs ol li+li::before {
-  display: inline-block;
-  padding-right: 10px;
-  color: #3c3c3c;
-  content: "/";
-}
-
-@media (max-width: 768px) {
-  .breadcrumbs .d-flex {
-    display: block !important;
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
   }
 
-  .breadcrumbs ol {
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #5cb874;
+  }
+
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    color: grey;
+    padding: 8px 25px;
+    margin-left: 30px;
+    border-radius: 4px;
+    border: 2px solid #5cb874;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    background: grey;
+    color: grey;
+  }
+
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: white;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+  }
+
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    text-transform: none;
+  }
+
+  .navbar .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: #5cb874;
+  }
+
+  .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+  }
+
+  @media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%;
+    }
+
+    .navbar .dropdown .dropdown:hover>ul {
+      left: -100%;
+    }
+  }
+
+  /**
+* Mobile Navigation
+*/
+  .mobile-nav-toggle {
+    color: #222222;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+  }
+
+  .mobile-nav-toggle.bi-x {
+    color: #fff;
+  }
+
+  @media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+
+    .navbar ul {
+      display: none;
+    }
+  }
+
+  .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(9, 9, 9, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #222222;
+  }
+
+  .navbar-mobile a:hover,
+  .navbar-mobile .active,
+  .navbar-mobile li:hover>a {
+    color: #5cb874;
+  }
+
+  .navbar-mobile .getstarted,
+  .navbar-mobile .getstarted:focus {
+    margin: 15px;
+  }
+
+  .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  }
+
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+  }
+
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navbar-mobile .dropdown ul a:hover,
+  .navbar-mobile .dropdown ul .active:hover,
+  .navbar-mobile .dropdown ul li:hover>a {
+    color: #5cb874;
+  }
+
+  .navbar-mobile .dropdown>.dropdown-active {
     display: block;
   }
 
-  .breadcrumbs ol li {
-    display: inline-block;
+  /*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+  #hero {
+    width: 100%;
+    height: 70vh;
+    background-color: #FFF8DC;
+    overflow: hidden;
+    position: relative;
   }
-}
 
-/*--------------------------------------------------------------
+  #hero .carousel,
+  #hero .carousel-inner,
+  #hero .carousel-item,
+  #hero .carousel-item::before {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  #hero .carousel-item::before {
+    content: "";
+    background: white;
+  }
+
+  #hero .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50px;
+    right: 50px;
+  }
+
+  #hero .container {
+    text-align: center;
+  }
+
+  #hero h2 {
+    color: Olive;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  #hero h6 {
+    color: Olive;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  #hero p {
+    animation-delay: 0.4s;
+    margin: 0 auto 30px auto;
+    color: Olive;
+  }
+
+  #hero .carousel-inner .carousel-item {
+    transition-property: opacity;
+    background-position: center top;
+  }
+
+  #hero .carousel-inner .carousel-item,
+  #hero .carousel-inner .active.carousel-item-start,
+  #hero .carousel-inner .active.carousel-item-end {
+    opacity: 0;
+  }
+
+  #hero .carousel-inner .active,
+  #hero .carousel-inner .carousel-item-next.carousel-item-start,
+  #hero .carousel-inner .carousel-item-prev.carousel-item-end {
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  #hero .carousel-control-next-icon,
+  #hero .carousel-control-prev-icon {
+    background: none;
+    font-size: 30px;
+    line-height: 0;
+    width: auto;
+    height: auto;
+    background: #FFF8DC;
+    border-radius: 50px;
+    transition: 0.3s;
+    color: #FFF8DC;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #hero .carousel-control-next-icon:hover,
+  #hero .carousel-control-prev-icon:hover {
+    background: #FFF8DC;
+    color: #FFF8DC;
+  }
+
+  #hero .carousel-indicators li {
+    cursor: pointer;
+    background: #fff;
+    overflow: hidden;
+    border: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+
+  #hero .carousel-indicators li.active {
+    opacity: 1;
+    background: #5cb874;
+  }
+
+  #hero .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    animation-delay: 0.8s;
+    background: #5cb874;
+  }
+
+  #hero .btn-get-started:hover {
+    background: #6ec083;
+  }
+
+  @media (max-width: 992px) {
+    #hero {
+      height: 100vh;
+    }
+
+    #hero .carousel-container {
+      top: 66px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #hero h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    #hero .carousel-control-prev,
+    #hero .carousel-control-next {
+      width: 5%;
+    }
+  }
+
+  @media (max-height: 500px) {
+    #hero {
+      height: 120vh;
+    }
+  }
+
+  /*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+  section {
+    padding: 60px 0;
+  }
+
+  .section-bg {
+    background-color: #f8fcf9;
+  }
+
+  .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .section-title h2::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  .section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: Olive;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+
+  .section-title p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+
+
+  }
+
+  /*--------------------------------------------------------------
+# Featured Services
+--------------------------------------------------------------*/
+  .featured-services {
+    padding: 20px 0;
+  }
+
+  .featured-services .icon-box {
+    padding: 20px;
+  }
+
+  .featured-services .icon-box-bg {
+    background-image: linear-gradient(0deg, #222222 0%, #2f2f2f 50%, #222222 100%);
+  }
+
+  .featured-services .icon {
+    margin-bottom: 15px;
+  }
+
+  .featured-services .icon i {
+    color: #5cb874;
+    font-size: 42px;
+  }
+
+  .featured-services .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .featured-services .title a {
+    color: #222222;
+    transition: 0.3s;
+  }
+
+  .featured-services .icon-box:hover .title a {
+    color: #5cb874;
+  }
+
+  .featured-services .description {
+    line-height: 24px;
+    font-size: 14px;
+  }
+
+  /*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+  .about .content h3 {
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  .about .content ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .about .content ul li {
+    padding-bottom: 10px;
+  }
+
+  .about .content ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: Olive;
+  }
+
+  .about .content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+  .why-us {
+    padding: 0;
+  }
+
+  .why-us .row {
+    overflow: hidden;
+  }
+
+  .why-us .content-item {
+    padding: 40px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: -1px;
+  }
+
+  .why-us .content-item span {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    color: #6ec083;
+  }
+
+  .why-us .content-item h4 {
+    font-size: 26px;
+    font-weight: 300;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .why-us .content-item p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .why-us .content-item {
+      padding: 40px 0;
+    }
+  }
+
+  /*--------------------------------------------------------------
+# Our Clients
+--------------------------------------------------------------*/
+  .clients .swiper-slide img {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .clients .swiper-slide img:hover {
+    opacity: 1;
+  }
+
+  .clients .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .clients .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #5cb874;
+  }
+
+  .clients .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #5cb874;
+  }
+
+  /*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+  .services .icon-box {
+    text-align: center;
+    padding: 70px 20px 80px 20px;
+    transition: all ease-in-out 0.3s;
+    background: #fff;
+    box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
+  }
+
+  .services .icon-box .icon {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.3s;
+    position: relative;
+  }
+
+  .services .icon-box .icon i {
+    font-size: 36px;
+    transition: 0.5s;
+    position: relative;
+  }
+
+  .services .icon-box .icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .services .icon-box .icon svg path {
+    transition: 0.5s;
+    fill: #f5f5f5;
+  }
+
+  .services .icon-box h4 {
+    font-weight: 600;
+    margin: 10px 0 15px 0;
+    font-size: 22px;
+  }
+
+  .services .icon-box h4 a {
+    color: #222222;
+    transition: ease-in-out 0.3s;
+  }
+
+  .services .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .services .icon-box:hover {
+    border-color: #fff;
+    box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .services .iconbox-blue i {
+    color: #47aeff;
+  }
+
+  .services .iconbox-blue:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-blue:hover .icon path {
+    fill: #47aeff;
+  }
+
+  .services .iconbox-orange i {
+    color: #ffa76e;
+  }
+
+  .services .iconbox-orange:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-orange:hover .icon path {
+    fill: #ffa76e;
+  }
+
+  .services .iconbox-pink i {
+    color: #e80368;
+  }
+
+  .services .iconbox-pink:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-pink:hover .icon path {
+    fill: #e80368;
+  }
+
+  .services .iconbox-yellow i {
+    color: #ffbb2c;
+  }
+
+  .services .iconbox-yellow:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-yellow:hover .icon path {
+    fill: #ffbb2c;
+  }
+
+  .services .iconbox-red i {
+    color: #ff5828;
+  }
+
+  .services .iconbox-red:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-red:hover .icon path {
+    fill: #ff5828;
+  }
+
+  .services .iconbox-teal i {
+    color: #11dbcf;
+  }
+
+  .services .iconbox-teal:hover .icon i {
+    color: #fff;
+  }
+
+  .services .iconbox-teal:hover .icon path {
+    fill: #11dbcf;
+  }
+
+  /*--------------------------------------------------------------
+# Cta
+--------------------------------------------------------------*/
+  .cta {
+    background: DarkSlateBlue;
+    padding: 80px 0;
+  }
+
+  .cta h3 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .cta p {
+    color: #fff;
+  }
+
+  .cta .cta-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 2px;
+    transition: 0.5s;
+    margin: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 4px;
+  }
+
+  .cta .cta-btn:hover {
+    background: #fff;
+    color: #5cb874;
+  }
+
+  @media (max-width: 1024px) {
+    .cta {
+      background-attachment: scroll;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .cta .cta-btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  /*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+  .portfolio .portfolio-item {
+    margin-bottom: 30px;
+  }
+
+  .portfolio #portfolio-flters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+  }
+
+  .portfolio #portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #444444;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+  }
+
+  .portfolio #portfolio-flters li:hover,
+  .portfolio #portfolio-flters li.filter-active {
+    color: #fff;
+    background: #5cb874;
+  }
+
+  .portfolio #portfolio-flters li:last-child {
+    margin-right: 0;
+  }
+
+  .portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(34, 34, 34, 0.6);
+  }
+
+  .portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(34, 34, 34, 0.6);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .portfolio .portfolio-wrap img {
+    transition: all ease-in-out 0.3s;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info h4 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links {
+    text-align: center;
+    z-index: 4;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links a {
+    color: #fff;
+    margin: 0 5px 0 0;
+    font-size: 28px;
+    display: inline-block;
+    transition: 0.3s;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links a:hover {
+    color: #6ec083;
+  }
+
+  .portfolio .portfolio-wrap:hover::before {
+    opacity: 1;
+  }
+
+  .portfolio .portfolio-wrap:hover img {
+    transform: scale(1.2);
+  }
+
+  .portfolio .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+  }
+
+  /*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+  .portfolio-details {
+    padding-top: 40px;
+  }
+
+  .portfolio-details .portfolio-details-slider img {
+    width: 100%;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #5cb874;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #5cb874;
+  }
+
+  .portfolio-details .portfolio-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+  }
+
+  .portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .portfolio-details .portfolio-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .portfolio-details .portfolio-info ul li+li {
+    margin-top: 10px;
+  }
+
+  .portfolio-details .portfolio-description {
+    padding-top: 30px;
+  }
+
+  .portfolio-details .portfolio-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-details .portfolio-description p {
+    padding: 0;
+  }
+
+  /*--------------------------------------------------------------
+# Team
+--------------------------------------------------------------*/
+  .team .member {
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 12px 0px rgba(34, 34, 34, 0.07);
+    padding: 30px 20px;
+    background: #fff;
+  }
+
+  .team .member img {
+    max-width: 60%;
+    border-radius: 50%;
+    margin: 0 0 30px 0;
+  }
+
+  .team .member h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+  }
+
+  .team .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+  }
+
+  .team .member p {
+    padding-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #aaaaaa;
+  }
+
+  .team .member .social {
+    margin-top: 15px;
+  }
+
+  .team .member .social a {
+    color: #919191;
+    transition: 0.3s;
+  }
+
+  .team .member .social a:hover {
+    color: #5cb874;
+  }
+
+  .team .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }
+
+  /*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+  .contact .info {
+    border-top: 3px solid Olive;
+    border-bottom: 3px solid Olive;
+    padding: 30px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .contact .info i {
+    font-size: 20px;
+    color: #5cb874;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: #eaf6ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact .info h4 {
+    padding: 0 0 0 60px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #222222;
+  }
+
+  .contact .info p {
+    padding: 0 0 10px 60px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555555;
+  }
+
+  .contact .info .social-links {
+    padding-left: 60px;
+  }
+
+  .contact .info .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+    margin-right: 10px;
+  }
+
+  .contact .info .social-links a:hover {
+    background: #5cb874;
+    color: #fff;
+  }
+
+  .contact .info .email:hover i,
+  .contact .info .address:hover i,
+  .contact .info .phone:hover i {
+    background: Olive;
+    color: Olive;
+  }
+
+  .contact .php-email-form {
+    width: 100%;
+    border-top: 3px solid #5cb874;
+    border-bottom: 3px solid #5cb874;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .contact .php-email-form .form-group {
+    padding-bottom: 8px;
+  }
+
+  .contact .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+  }
+
+  .contact .php-email-form .error-message br+br {
+    margin-top: 25px;
+  }
+
+  .contact .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+
+  .contact .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #18d26e;
+    border-top-color: #eee;
+    animation: animate-loading 1s linear infinite;
+  }
+
+  .contact .php-email-form input,
+  .contact .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .contact .php-email-form input:focus,
+  .contact .php-email-form textarea:focus {
+    border-color: DarkSlateBlue;
+  }
+
+  .contact .php-email-form input {
+    height: 44px;
+  }
+
+  .contact .php-email-form textarea {
+    padding: 10px 12px;
+  }
+
+  .contact .php-email-form button[type=submit] {
+    background: #5cb874;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+  }
+
+  .contact .php-email-form button[type=submit]:hover {
+    background: #6ec083;
+  }
+
+  @keyframes animate-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+  .breadcrumbs {
+    padding: 15px 0;
+    background: #fbfbfb;
+    min-height: 40px;
+  }
+
+  @media (max-width: 992px) {
+    .breadcrumbs {
+      margin-top: 66px;
+    }
+  }
+
+  .breadcrumbs h2 {
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .breadcrumbs ol li+li {
+    padding-left: 10px;
+  }
+
+  .breadcrumbs ol li+li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #3c3c3c;
+    content: "/";
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumbs .d-flex {
+      display: block !important;
+    }
+
+    .breadcrumbs ol {
+      display: block;
+    }
+
+    .breadcrumbs ol li {
+      display: inline-block;
+    }
+  }
+
+  /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#footer {
-  background: #090909;
-  color: Olive;
-  font-size: 14px;
-  text-align: center;
-  padding: 30px 0;
-}
+  #footer {
+    background: #090909;
+    color: Olive;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+  }
 
-#footer h3 {
-  font-size: 36px;
-  font-weight: 700;
-  color: Olive;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
+  #footer h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: Olive;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0 0 15px 0;
+  }
 
-#footer p {
-  font-size: 15;
-  font-style: italic;
-  padding: 0;
-  margin: 0 0 40px 0;
-}
+  #footer p {
+    font-size: 15;
+    font-style: italic;
+    padding: 0;
+    margin: 0 0 40px 0;
+  }
 
-#footer .social-links {
-  margin: 0 0 40px 0;
-}
+  #footer .social-links {
+    margin: 0 0 40px 0;
+  }
 
-#footer .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background:Olive;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
+  #footer .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: Olive;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
 
-#footer .social-links a:hover {
-  background: DarkSlateBlue;
-  color: Olive;
-  text-decoration: none;
-}
+  #footer .social-links a:hover {
+    background: DarkSlateBlue;
+    color: Olive;
+    text-decoration: none;
+  }
 
-#footer .copyright {
-  margin: 0 0 5px 0;
-}
+  #footer .copyright {
+    margin: 0 0 5px 0;
+  }
 
-#footer .credits {
-  font-size: 13px;
-}
-
-
+  #footer .credits {
+    font-size: 13px;
+  }
 
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-.navbar {
-  overflow: hidden;
-  background-color: Olive;
-}
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
+  .navbar {
+    overflow: hidden;
+    background-color: Olive;
+  }
 
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: black;
-}
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
 
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+  .navbar a:hover,
+  .dropdown:hover .dropbtn {
+    background-color: black;
+  }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 </style>
 
 
-  <!-- ======= Top Bar ======= -->
+<!-- ======= Top Bar ======= -->
 
-      <div class="social-links d-none d-md-block">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-     </div>
-  </section>
+<div class="social-links d-none d-md-block">
+  <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+  <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+  <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+  <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+</div>
+</div>
+</section>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center">
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Vismai</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-    </div>
-  </header><!-- End Header -->
+    <h1 class="logo me-auto"><a href="index.html">Vismai</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  </div>
+</header><!-- End Header -->
 
 
 
-  <!-- ======= Hero Section ======= -->
+<!-- ======= Hero Section ======= -->
 <div class="navbar">
-    <a href="#hero">HOME</a>
-    <a href="#about">ABOUT</a>
-        <div class="dropdown">
-          <button class="dropbtn">SERVICES
-             <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#services">MOLECULAR DESCRIPTION</a>
-            <a href="#fingerprint">FINGERPRINT</a>
-            <a href="#prediction">PREDICTION</a>
-          </div>
-        </div>
-    <a href="#contact">CONTACT</a>
+  <a href="#hero">HOME</a>
+  <a href="#about">ABOUT</a>
+  <div class="dropdown">
+    <button class="dropbtn">SERVICES
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#services">MOLECULAR DESCRIPTION</a>
+      <a href="#fingerprint">FINGERPRINT</a>
+      <a href="#prediction">PREDICTION</a>
+    </div>
+  </div>
+  <a href="#contact">CONTACT</a>
 </div>
 
-  <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+<section id="hero">
+  <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
-      <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner" role="listbox">
 
-        <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Vismai</span></h2>
-              <h2 class="animate__animated animate__fadeInDown"><u>Vi</u>rtual <u>S</u>creening Tool using <u>M</u>L</h2>
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Vismai</span></h2>
+            <h2 class="animate__animated animate__fadeInDown"><u>Vi</u>rtual <u>S</u>creening Tool using <u>M</u>L</h2>
 
-             <br>
-                <img src="{% static 'myapp/images/chem1.png' %}">
-                <img src="{% static 'myapp/images/chem2.png' %}">
+            <br>
+            <img src="{% static 'myapp/images/chem1.png' %}">
+            <img src="{% static 'myapp/images/chem2.png' %}">
 
-            </div>
           </div>
-        </div>
-
-  </section><!-- End Hero -->
- <!-- ======= Cta Section ======= -->
-    <section >
-
-    </section><!-- End Cta Section -->
-
-  <main id="main">
-
-
-
-    <!-- ======= About Us Section ======= -->
-      <section id="about" class="about">
-            <div class="navbar">
-              <a href="#hero">HOME</a>
-
-                <div class="dropdown">
-                    <button class="dropbtn">SERVICES
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                 <div class="dropdown-content">
-                     <a href="#services">MOLECULAR DESCRIPTION</a>
-                     <a href="#fingerprint">FINGERPRINT</a>
-                     <a href="#prediction">PREDICTION</a>
-                 </div>
-                </div>
-
-                <a href="#contact">CONTACT</a>
-            </div>
-      <div class="container">
-          <div class="section-title">
-            <h2>About Us</h2>
-            <p>It is a complete virtual screening platform for evaluating and screening the chemical properties of the compound. <br>
-            This tool is userfriendly and easily available platform, which enables the users to conveniently and efficiently
-            implement <br>the calculation  of 19 physiochemical,5 druglikness, 2 absorption, 4 Distribution, 4 lipophilicity, 3 excretion, 1 toxicity And 4 fingerprints</p>
-          <br>
-          <br>
-          <img align="centre" src="{% static 'myapp/images/chem5.png' %}">
         </div>
       </div>
-      </section>
-      <!-- End About Us Section -->
+
+</section><!-- End Hero -->
+<!-- ======= Cta Section ======= -->
+<section>
+
+</section><!-- End Cta Section -->
+
+<main id="main">
 
 
 
-    <!-- ======= Our Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-          <div class="section-title">
-          </div>
-          <div class="clients-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="navbar">
+      <a href="#hero">HOME</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">SERVICES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#services">MOLECULAR DESCRIPTION</a>
+          <a href="#fingerprint">FINGERPRINT</a>
+          <a href="#prediction">PREDICTION</a>
         </div>
-
       </div>
-    </section><!-- End Our Clients Section -->
 
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-        <div class="navbar">
-         <a href="/">HOME</a>
-         <a href="#about">ABOUT</a>
-         <div class="dropdown">
-          <button class="dropbtn">SERVICES
-             <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#services">MOLECULAR DESCRIPTION</a>
-            <a href="#fingerprint">FINGERPRINT</a>
-            <a href="#prediction">PREDICTION</a>
-
-          </div>
-        </div>
-            <a href="#contact">CONTACT</a>
-        </div>
-        <div class="container">
-             <div class="section-title">
-              <h2>ADMET EVALUATION & SCREENING</h2>
-              <p>ENTER THE SMILES STRINGS</p>
-             </div>
-             <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon-box iconbox-blue">
-                  <form method="POST" enctype="multipart/form-data" action="{% url 'calculate' %}">
-                   {% csrf_token %}<br>
-
-                      &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
-                      <label for="smiles"><b>Enter SMILES strings: <b></b></label>
-                     <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br>
-                     <img align="right" src="{% static 'images/about-medicine.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
-                      <img align="left" src="{% static 'images/chemlab.jpg' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
-                      &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                      <button class="button button2" type="submit" value="Calculate">CALCULATE</button>
-                </form>
-            </div>
-          </div></div>
-    </section><!-- End Services Section -->
-      <!-- ======= Cta Section ======= -->
-    <section >
-    </section>
-      <!-- End Cta Section -->
-      <!-- End services Section -->
-
-
-
-      <!-- ======= Fingerprint Section ======= -->
-      <section id="fingerprint" class="fingerprint">
-        <div class="navbar">
-         <a href="/">HOME</a>
-         <a href="#about">ABOUT</a>
-            <div class="dropdown">
-             <button class="dropbtn">SERVICES
-              <i class="fa fa-caret-down"></i>
-            </button>
-          <div class="dropdown-content">
-            <a href="#services">MOLECULAR DESCRIPTION</a>
-            <a href="#fingerprint">FINGERPRINT</a>
-            <a href="#prediction">PREDICTION</a>
-          </div>
-        </div>
-            <a href="#contact">CONTACT</a>
-        </div>
-        <div class="container">
-            <div class="section-title">
-              <h2>FINGERPRINT CALCULATOR</h2>
-              <p>ENTER THE SMILES STRINGS</p>
-            </div>
-            <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-            <form method="post" action="{% url 'calculate_fingerprint' %}">
-              {% csrf_token %}
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                <label for="smiles"><b>Enter SMILES strings: <b></b></label>
-                <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br><br>
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                <button class="button button2" type="submit" value="Calculate Fingerprint" >Fingerprint</button>
-            </form>
-         </div></div></div>
-        </div>
-     </section>
-      <!-- ======= Cta Section ======= -->
-     <section >
-
-    </section><!-- End Cta Section -->
-      </section>
-
-    <!-- ======= Cta Section ======= -->
-    <section >
-
-    </section>
-    <!-- End Fingerprint Section -->
-
-
-
-
-
-            <!-- ======= Prediction Section ======= -->
-      <section id="prediction" class="prediction">
-        <div class="navbar">
-         <a href="/">HOME</a>
-         <a href="#about">ABOUT</a>
-            <div class="dropdown">
-             <button class="dropbtn">SERVICES
-              <i class="fa fa-caret-down"></i>
-            </button>
-          <div class="dropdown-content">
-            <a href="#services">MOLECULAR DESCRIPTION</a>
-            <a href="#fingerprint">FINGERPRINT</a>
-            <a href="#prediction">PREDICTION</a>
-          </div>
-        </div>
-            <a href="#contact">CONTACT</a>
-        </div>
-        <div class="container">
-            <div class="section-title">
-              <h2>PREDICTION</h2>
-              <p>ENTER THE SMILES STRINGS</p>
-            </div>
-            <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-            <form method="post" action="{% url 'predict' %}">
-              {% csrf_token %}
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                <label for="smiles"><b>Enter SMILES strings: <b></b></label>
-                <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br><br>
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
-                <button class="button button2" type="submit" value="predict" >Prediction</button>
-            </form>
-         </div></div></div>
-        </div>
-     </section>
-      <!-- ======= Cta Section ======= -->
-     <section >
-
-    </section><!-- End Cta Section -->
-      </section>
-
-    <!-- ======= Cta Section ======= -->
-    <section >
-
-    </section>
-    <!-- End Prediction Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-          <div class="section-title">
-           <h2>Contact</h2>
-          </div>
-
-          <div class="row">
-              <div class="col-lg-5 d-flex align-items-stretch">
-               <div class="info">
-               <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Amrita School Of Pharmacy, Kochi,Kerala,India</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>vismai@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-               </div>
-              </div>
-          </div>
-      </div>
-    </section>
-      <!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+      <a href="#contact">CONTACT</a>
+    </div>
     <div class="container">
-      <h3>Vismai</h3>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Vismai</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>It is a complete virtual screening platform for evaluating and screening the chemical properties of the
+          compound. <br>
+          This tool is userfriendly and easily available platform, which enables the users to conveniently and
+          efficiently
+          implement <br>the calculation of 19 physiochemical,5 druglikness, 2 absorption, 4 Distribution, 4
+          lipophilicity, 3 excretion, 1 toxicity And 4 fingerprints</p>
+        <br>
+        <br>
+        <img align="centre" src="{% static 'myapp/images/chem5.png' %}">
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </section>
+  <!-- End About Us Section -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- ======= Our Clients Section ======= -->
+  <section id="clients" class="clients">
+    <div class="container">
+      <div class="section-title">
+      </div>
+      <div class="clients-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section><!-- End Our Clients Section -->
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="navbar">
+      <a href="/">HOME</a>
+      <a href="#about">ABOUT</a>
+      <div class="dropdown">
+        <button class="dropbtn">SERVICES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#services">MOLECULAR DESCRIPTION</a>
+          <a href="#fingerprint">FINGERPRINT</a>
+          <a href="#prediction">PREDICTION</a>
+
+        </div>
+      </div>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <div class="container">
+      <div class="section-title">
+        <h2>ADMET EVALUATION & SCREENING</h2>
+        <p>ENTER THE SMILES STRINGS</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-blue">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'calculate' %}">
+              {% csrf_token %}<br>
+
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+              <label for="smiles"><b>Enter SMILES strings: <b></b></label>
+              <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br>
+              <img align="right" src="{% static 'images/about-medicine.png' %}" class="img-fluid" alt=""
+                data-aos="zoom-out" data-aos-delay="100">
+              <img align="left" src="{% static 'images/chemlab.jpg' %}" class="img-fluid" alt="" data-aos="zoom-out"
+                data-aos-delay="100">
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              <button class="button button2" type="submit" value="Calculate">CALCULATE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </section><!-- End Services Section -->
+  <!-- ======= Cta Section ======= -->
+  <section>
+  </section>
+  <!-- End Cta Section -->
+  <!-- End services Section -->
+
+
+
+  <!-- ======= Fingerprint Section ======= -->
+  <section id="fingerprint" class="fingerprint">
+    <div class="navbar">
+      <a href="/">HOME</a>
+      <a href="#about">ABOUT</a>
+      <div class="dropdown">
+        <button class="dropbtn">SERVICES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#services">MOLECULAR DESCRIPTION</a>
+          <a href="#fingerprint">FINGERPRINT</a>
+          <a href="#prediction">PREDICTION</a>
+        </div>
+      </div>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <div class="container">
+      <div class="section-title">
+        <h2>FINGERPRINT CALCULATOR</h2>
+        <p>ENTER THE SMILES STRINGS</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-blue">
+            <form method="post" action="{% url 'calculate_fingerprint' %}">
+              {% csrf_token %}
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+              &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              <label for="smiles"><b>Enter SMILES strings: <b></b></label>
+              <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br><br>
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              <button class="button button2" type="submit" value="Calculate Fingerprint">Fingerprint</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ======= Cta Section ======= -->
+  <section>
+
+  </section><!-- End Cta Section -->
+  </section>
+
+  <!-- ======= Cta Section ======= -->
+  <section>
+
+  </section>
+  <!-- End Fingerprint Section -->
+
+
+
+
+
+  <!-- ======= Prediction Section ======= -->
+  <section id="prediction" class="prediction">
+    <div class="navbar">
+      <a href="/">HOME</a>
+      <a href="#about">ABOUT</a>
+      <div class="dropdown">
+        <button class="dropbtn">SERVICES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#services">MOLECULAR DESCRIPTION</a>
+          <a href="#fingerprint">FINGERPRINT</a>
+          <a href="#prediction">PREDICTION</a>
+        </div>
+      </div>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <div class="container">
+      <div class="section-title">
+        <h2>PREDICTION</h2>
+        <p>ENTER THE SMILES STRINGS</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-blue">
+            <form method="post" action="{% url 'predict' %}">
+              {% csrf_token %}
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+              &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              <label for="smiles"><b>Enter SMILES strings: <b></b></label>
+              <textarea id="smiles" name="smiles" rows="3" cols="100"></textarea><br><br><br>
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+              <button class="button button2" type="submit" value="predict">Prediction</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ======= Cta Section ======= -->
+  <section>
+
+  </section><!-- End Cta Section -->
+  </section>
+
+  <!-- ======= Cta Section ======= -->
+  <section>
+
+  </section>
+  <!-- End Prediction Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Amrita School Of Pharmacy, Kochi,Kerala,India</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>vismai@example.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+1 5589 55488 55s</p>
+            </div>
+
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+              frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="container">
+    <h3>Vismai</h3>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>Vismai</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
 </body>
+
 </html>
