@@ -1,0 +1,305 @@
+{% extends "myapp/base.html" %}
+{%block nav%}
+<li class="nav-item">
+    <a class="nav-link" aria-current="page"
+        onclick="javascript:smoothScroll(document.getElementById('download_form'));">Download</a>
+</li>
+{%endblock%}
+{% block body %}
+<div class="container">
+    <h1 class="h1 p-3">Molecular descriptor results</h1>
+    {% if results%}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Smile notation</th>
+                    {% for result in results %}
+                    <th>{{ result.smiles }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Molecular Formula</td>
+                    {% for result in results %}
+                    <td>{{ result.molecular_formula }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Molecular Weight</td>
+                    {% for result in results %}
+                    <td>{{ result.molecular_weight }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>logP</td>
+                    {% for result in results %}
+                    <td>{{ result.logP }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>TPSA</td>
+                    {% for result in results %}
+                    <td>{{ result.tpsa }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num Rotatable Bonds</td>
+                    {% for result in results %}
+                    <td>{{ result.num_rotatable_bonds }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num H Acceptors</td>
+                    {% for result in results %}
+                    <td>{{ result.num_h_acceptors }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num H Donors</td>
+                    {% for result in results %}
+                    <td>{{ result.num_h_donors }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num Heavy Atoms</td>
+                    {% for result in results %}
+                    <td>{{ result.num_heavy_atoms }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Molar Refractivity</td>
+                    {% for result in results %}
+                    <td>{{ result.molar_refractivity }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Fraction CSP3</td>
+                    {% for result in results %}
+                    <td>{{ result.fraction_csp3 }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>logD</td>
+                    {% for result in results %}
+                    <td>{{ result.logD }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>logS</td>
+                    {% for result in results %}
+                    <td>{{ result.logS }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Bioavailability Score</td>
+                    {% for result in results %}
+                    <td>{{ result.bioavailability_score }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num Rings</td>
+                    {% for result in results %}
+                    <td>{{ result.num_rings }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num Hetero Atoms</td>
+                    {% for result in results %}
+                    <td>{{ result.num_hetero_atoms }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Formal Charge</td>
+                    {% for result in results %}
+                    <td>{{ result.formal_charge }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Num Rigid Bonds</td>
+                    {% for result in results %}
+                    <td>{{ result.num_rigid_bonds }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Polar Surface Area</td>
+                    {% for result in results %}
+                    <td>{{ result.polar_surface_area }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>SP3 Count</td>
+                    {% for result in results %}
+                    <td>{{ result.sp3_count }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Radical Electrons</td>
+                    {% for result in results %}
+                    <td>{{ result.radical_electrons }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Valence Electrons</td>
+                    {% for result in results %}
+                    <td>{{ result.valence_electrons }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Heavy Atom Molecular Weight</td>
+                    {% for result in results %}
+                    <td>{{ result.heavy_atom_molecular_weight }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Exact Molecular Weight</td>
+                    {% for result in results %}
+                    <td>{{ result.exact_molecular_weight }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>QED</td>
+                    {% for result in results %}
+                    <td>{{ result.qed }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>P-Glycoprotein</td>
+                    {% for result in results %}
+                    <td>{{ result.ab_p_glycoprotein }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Human Intestinal Absorption</td>
+                    {% for result in results %}
+                    <td>{{ result.ab_human_intestinal_absorption }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Protein Binding Percentage</td>
+                    {% for result in results %}
+                    <td>{{ result.ab_protein_binding_percentage }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Blood-Brain Barrier</td>
+                    {% for result in results %}
+                    <td>{{ result.ds_blood_brain_barrier }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Fraction Unbound</td>
+                    {% for result in results %}
+                    <td>{{ result.ds_fraction_unbound }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>AlogP</td>
+                    {% for result in results %}
+                    <td>{{ result.li_alogp }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>XlogP</td>
+                    {% for result in results %}
+                    <td>{{ result.li_xlogp }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>IlogP</td>
+                    {% for result in results %}
+                    <td>{{ result.li_ilogp }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>WlogP</td>
+                    {% for result in results %}
+                    <td>{{ result.li_wlogp }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Metabolism</td>
+                    {% for result in results %}
+                    <td>{{ result.metabolism }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Clearance</td>
+                    {% for result in results %}
+                    <td>{{ result.ex_clearance }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Intrinsic Clearance</td>
+                    {% for result in results %}
+                    <td>{{ result.ex_intrinsic_clearance }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Half-Life</td>
+                    {% for result in results %}
+                    <td>{{ result.ex_half_life }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>High logP</td>
+                    {% for result in results %}
+                    <td>{{ result.tx_high_logP }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Toxicity Score</td>
+                    {% for result in results %}
+                    <td>{{ result.tx_toxicity_score }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Lipinski Rule</td>
+                    {% for result in results %}
+                    <td>{{ result.dl_lipinski_rule }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Veber Rule</td>
+                    {% for result in results %}
+                    <td>{{ result.dl_veber_rule }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Ghose Rule</td>
+                    {% for result in results %}
+                    <td>{{ result.dl_ghose_rule }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Egan Rule</td>
+                    {% for result in results %}
+                    <td>{{ result.dl_egan_rule }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Pfizer Rule</td>
+                    {% for result in results %}
+                    <td>{{ result.dl_pfizer_rule }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form class="text-center" id="download_form" action="{% url 'download' %}" method="post">
+        {% csrf_token %}
+        {{ results|json_script:"results_data" }}
+        <input type="hidden" name="results" id="results" value="">
+        <input type="submit" value="Download CSV" class="btn btn-primary mt-3">
+    </form>
+
+    <script>
+        // Set the JSON data from the script tag to the hidden input
+        document.getElementById('results').value = JSON.stringify(JSON.parse(document.getElementById('results_data').textContent));
+    </script>
+    {% else %}
+    <p>No results to display.</p>
+    {% endif %}
+</div>
+{% endblock %}

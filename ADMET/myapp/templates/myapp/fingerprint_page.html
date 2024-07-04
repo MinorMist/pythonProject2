@@ -1,0 +1,68 @@
+{% extends "myapp/base.html" %}
+{%block nav%}
+<li class="nav-item">
+    <a class="nav-link" aria-current="page" onclick="javascript:smoothScroll(document.getElementById('downloadFp_btn'));">Download</a>
+</li>
+{%endblock%}
+{%block body%}
+<div class="container">
+
+    <h1 class="h1 p-3">Fingerprint results</h1>
+    <br>
+    <h3 class="h3 p-2">{{fingerprints.smiles}}</h3>
+    <br>
+    <div class="border border-dark container">
+        <div class="row justify-content-center align-items-center">
+            <h4 class="h4 p-3 col">Morgan fingerprint</h4>
+            <div class="col-auto"><button class="btn-sm btn-dark"
+                    onclick="javascript:copyToClipboard(document.getElementById('morganFp'));"><i
+                        class="bi bi-clipboard"></i></button></div>
+        </div>
+        <p class="p" id="morganFp">{{fingerprints.fingerprint}}</p>
+    </div>
+
+    <br>
+    <div class="border border-dark container">
+        <div class="row justify-content-center align-items-center">
+            <h4 class="h4 p-3 col">MACCS fingerprint</h4>
+            <div class="col-auto"><button class="btn-sm btn-dark"
+                    onclick="javascript:copyToClipboard(document.getElementById('maccsFp'));"><i
+                        class="bi bi-clipboard"></i></button></div>
+        </div>
+        <p class="p" id="maccsFp">{{fingerprints.maccs_fingerprint}}</p>
+    </div>
+
+    <br>
+    <div class="border border-dark container">
+        <div class="row justify-content-center align-items-center">
+            <h4 class="h4 p-3 col">Torsion fingerprint</h4>
+            <div class="col-auto"><button class="btn-sm btn-dark"
+                    onclick="javascript:copyToClipboard(document.getElementById('torsionFp'));"><i
+                        class="bi bi-clipboard"></i></button></div>
+        </div>
+        <p class="p" id="torsionFp">{{fingerprints.torsion_fingerprint}}</p>
+    </div>
+
+    <br>
+    <div class="border border-dark container">
+        <div class="row justify-content-center align-items-center">
+            <h4 class="h4 p-3 col">Rdk fingerprint</h4>
+            <div class="col-auto"><button class="btn-sm btn-dark"
+                    onclick="javascript:copyToClipboard(document.getElementById('rdkFp'));"><i
+                        class="bi bi-clipboard"></i></button></div>
+        </div>
+        <p class="p" id="rdkFp">{{fingerprints.rdk_fingerprint}}</p>
+    </div>
+    <form class="text-center" id="download_form" action="{% url 'download_fingerprint' %}" method="post">
+        {% csrf_token %}
+        {{ fingerprints|json_script:"fingerprints_data" }}
+        <input type="hidden" name="fingerprints" id="fingerprints" value="">
+        <input id="downloadFp_btn" type="submit" value="Download CSV" class="btn btn-primary mt-3">
+    </form>
+
+    <script>
+        // Set the JSON data from the script tag to the hidden input
+        document.getElementById('fingerprints').value = JSON.stringify(JSON.parse(document.getElementById('fingerprints_data').textContent));
+    </script>
+</div>
+{%endblock%}

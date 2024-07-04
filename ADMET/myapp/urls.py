@@ -32,17 +32,21 @@ from . import views
 
 
 from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.calculate, name='calculate'),
+    path('sample/', views.sample, name='sample'),
+    path('result_page/', views.calculate_new, name='result_page'),
+    path('fingerprint_page/', views.calculate_new_fingerprint, name='fingerprint_page'),
+    path('druglikeness_page/', views.calculate_new_druglikeness, name='druglikeness_page'),
     path('download/', views.download, name='download'),
+    path('download_fingerprint/', views.download_fingerprint, name='download_fingerprint'),
     path('fingerprint/', views.calculate_fingerprint, name='calculate_fingerprint'),
     path('download/morgan/', views.download_morgan_csv, name='download_morgan_csv'),
     path('download/maccs/', views.download_maccs_csv, name='download_maccs_csv'),
     path('download/torsion/', views.download_torsion_csv, name='download_torsion_csv'),
-    path('download/rdk/',views.download_rdk_csv, name='download_rdk_csv'),
+    path('download/rdk/', views.download_rdk_csv, name='download_rdk_csv'),
     path('', views.home, name='home'),
     path('predict/', views.predict, name='predict'),
-    path('sample/', views.sample, name='sample')
 ]
 

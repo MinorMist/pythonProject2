@@ -5,8 +5,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{%block head%}Base page{%endblock%}</title>
+  <title>{%block title%}Base page{%endblock%}</title>
   <link rel="icon" type="image/x-icon" href="../../static/assets/pill.ico" />
+  {%block header%}
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
     type="text/css" />
@@ -31,6 +32,7 @@
   <script src="{% static 'js/script.js' %}"></script>
   <!-- JQuery from static-->
   <script type="text/javascript" src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+  {%endblock%}
 </head>
 
 <body>
@@ -38,7 +40,7 @@
   <!-- Navbar -->
   <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-light fs-5 fw-bolder py-3">
     <div class="container font-weight-bold">
-      <a class="navbar-brand" onclick="javascript:smoothScroll(document.getElementById('navbar_top'));">
+      <a class="navbar-brand" href="{% url 'sample' %}">
         <h3 class="px-3">VISMAI</h3>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -48,28 +50,11 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" onclick="javascript:smoothScroll(document.getElementById('navbar_top'));">Home</a>
+            <a class="nav-link" aria-current="page"
+              onclick="javascript:smoothScroll(document.getElementById('navbar_top'));">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="javascript:smoothScroll(document.getElementById('about'));">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Services
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" data-target="option1"
-                  onclick="javascript:select_feature(document.getElementById('btnradio1'));">ADMET prediction</a></li>
-              <li><a class="dropdown-item" data-target="option2"
-                  onclick="javascript:select_feature(document.getElementById('btnradio2'));">Fingerprint</a></li>
-              <li><a class="dropdown-item" data-target="option3"
-                  onclick="javascript:select_feature(document.getElementById('btnradio3'));">Drug-likeness</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="javascript:smoothScroll(document.getElementById('contact'));">Contact</a>
-          </li>
+          {%block nav%}
+          {%endblock%}
         </ul>
       </div>
     </div>
@@ -85,145 +70,9 @@
         <div class="col-auto"><button class="btn btn-primary btn-dark" type="whatIsVismai" id="VismaiBtn">What is
         VISMAI</button></div>
   // -->
-
-  <!-- Cover page -->
-  <header id="cover" class="masthead">
-    <div class="container v-box-out">
-      <div class="text-center">
-        <h1 class="h1 text-white">Welcome to</h1>
-      </div>
-      <div class="vismai-box list-group list-group-flush p-5">
-        <h1 class="h2 align-left vismai-style-main"> <span class="vismai-style">Vi</span>rtual
-          <span class="vismai-style">S</span>creening tool using
-          <span class="vismai-style">M</span>L -
-          <span class="vismai-style">AI</span>
-        </h1>
-      </div>
-      <hr>
-      <div class="text-center"><button class="btn btn-primary btn-dark" type="whatIsVismai" id="VismaiBtn">What is
-          VISMAI</button></div>
-    </div>
-  </header>
-
-  <!-- About section -->
-  <section id="about" class="features-icons bg-light text-center ">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-            <h3>Molecular Descriptor</h3>
-            <p class="lead mb-0 text-left">ADMET is an acronym that stands for Absorption, Distribution, Metabolism,
-              Excretion,
-              and Toxicity. Assessing these ADMET properties is essential in drug development to ensure efficacy and
-              safety.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-            <h3>Fingerprint calculator</h3>
-            <p class="lead mb-0 text-left">A chemical compound fingerprint calculator generates unique representations
-              based on
-              molecular structure. These fingerprints condense complex information, aiding researchers in navigating
-              chemical spaces and
-              identifying potential candidates swiftly.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-            <h3>Drug-likeness prediction</h3>
-            <p class="lead mb-0 text-left">Drug likeness prediction is vital in drug discovery. It evaluates whether a
-              compound has the right properties to be developed into a safe and effective therapeutic drug.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main section -->
-  <div id="feature" class="container-fluid min-vh-100 p-5">
-    <h1 class="p-5 text-center">Features</h1>
-    <div class="position-relative">
-      <div class="container text-center p-1">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-          <label class="btn btn-outline-dark" for="btnradio1">Molecular Descriptor</label>
-
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-          <label class="btn btn-outline-dark" for="btnradio2">Fingerprint calculator</label>
-
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-          <label class="btn btn-outline-dark" for="btnradio3">Drug-likeness prediction</label>
-        </div>
-      </div>
-      <div class="inp-form container p-5">
-        <form class="py-3">
-          <div class="mb-3 custom-width">
-            <label for="smilesTextarea">Enter the SMILES</label>
-            <textarea class="form-control " id="smilesTextarea" placeholder="Enter SMILES here" required
-              rows="3"></textarea>
-          </div>
-          <div class="col-auto my-1 text-center">
-            <button type="button" id="sample-smile-btn" class="btn btn-success"
-              onclick="javascript:fill_sample_smile();">Fill with
-              sample SMILE</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Maps-Location section -->
-  <div id="contact" class="container min-vh-60 mx-auto py-3 bg-light align-contents-center">
-    <div class="container ">
-      <h1 class="h1 p5">Contact</h1>
-    </div>
-    <div class="row container">
-      <div class="col-md-auto p-5">
-        <div class="map-details">
-          <ul class="list-group list-group-flush" style="list-style: none;">
-            <li class="list-group-item">
-              <div class="">
-                <h6 class="h6"><i class="bi bi-geo-alt-fill"></i> Location : Amrita School of Pharmacy,
-                  Kochi</h6>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="">
-                <h6 class="h6"><i class="bi bi-telephone-fill"></i> Phone : 1234567890</h6>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="">
-                <h6 class="h6"><i class="bi bi-envelope-at-fill"></i> Email : <a onclick="handleClick()"
-                    href="mailto:test@test.com">test@test.com</a></h6>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="">
-                <h6 class="h6"><i class="bi bi-browser-chrome"></i> Website : <a
-                    href="https://www.amrita.edu/school/pharmacy/">https://www.amrita.edu/school/pharmacy/</a></h6>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="ratio ratio-16x9">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8046098.154273071!2d66.532894225!3d10.036746599999981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d9483e4654b%3A0x13df7bf146ffb592!2sAmrita%20School%20of%20Pharmacy!5e0!3m2!1sen!2sin!4v1714163076941!5m2!1sen!2sin"
-            width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  {%block body%}{%endblock%}
   <!-- Footer section -->
+  {%block footer%}
   <footer class="footer bg-light">
     <div class="container">
       <div class="row">
@@ -252,6 +101,7 @@
       </div>
     </div>
   </footer>
+  {%endblock%}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
