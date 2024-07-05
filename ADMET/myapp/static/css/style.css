@@ -4134,7 +4134,7 @@ fieldset:disabled .btn {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: var(--bs-link-color);
+  /* --bs-nav-link-color: var(--bs-link-color); */
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
   --bs-nav-link-disabled-color: #6c757d;
   display: flex;
@@ -4149,7 +4149,7 @@ fieldset:disabled .btn {
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
-  color: var(--bs-nav-link-color);
+  /* color: var(--bs-nav-link-color); */
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -12677,12 +12677,23 @@ fieldset:disabled .btn {
   margin: auto;
 }
 
-
-hr {
-  color: white;
+.info-btn {
+  pointer-events: auto;
 }
 
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.about2 {
+  position: relative;
+  background: url("../../../../static/assets/img/drug-discovery2.jpg") no-repeat center center fixed;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 0px;
+  align-items: center;
 }

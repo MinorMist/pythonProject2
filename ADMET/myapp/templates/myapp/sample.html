@@ -28,7 +28,6 @@ Sample page
 {%endblock%}
 
 {%block body%}
-
 <!-- Cover page -->
 <header id="cover" class="masthead">
   <div class="container v-box-out">
@@ -43,9 +42,11 @@ Sample page
       </h1>
     </div>
     <hr>
-    <div class="text-center"><button class="btn btn-primary btn-dark" type="whatIsVismai" id="VismaiBtn"
+    <div class="text-center">
+      <button class="btn btn-primary btn-dark" type="whatIsVismai" id="VismaiBtn"
         onclick="javascript:smoothScroll(document.getElementById('about'));">What is
-        VISMAI</button></div>
+        VISMAI</button>
+    </div>
   </div>
 </header>
 
@@ -90,7 +91,7 @@ Sample page
 <div id="feature" class="container-fluid min-vh-100 p-5">
   <h1 class="pt-5 text-center">Features</h1>
   <div class="position-relative">
-    
+
     <div class="inp-form container p-1">
       <form class="py-3" id="submit_form" form method="POST" enctype="multipart/form-data">
         {% csrf_token %}<br>
@@ -98,10 +99,10 @@ Sample page
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="featureRb" id="featureRb1" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="featureRb1">Molecular Descriptor</label>
-    
+
             <input type="radio" class="btn-check" name="featureRb" id="featureRb2" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="featureRb2">Fingerprint calculator</label>
-    
+
             <input type="radio" class="btn-check" name="featureRb" id="featureRb3" autocomplete="off" required>
             <label class="btn btn-outline-dark" for="featureRb3">Drug-likeness prediction</label>
           </div>
@@ -112,7 +113,7 @@ Sample page
             name="smiles"></textarea>
         </div>
         <div class="col-auto my-1 text-center">
-          <button type="button" id="sample-smile-btn" class="btn btn-success"
+          <button type="button" id="sample-smile-btn" class="btn btn-success m-1"
             onclick="javascript:fill_sample_smile();">Fill with
             sample SMILE</button>
           <button type="submit" class="btn btn-primary" id="submit_btn">Submit</button>
@@ -173,6 +174,22 @@ Sample page
 <!-- Submit button redirecting -->
 
 <script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 700) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+        // remove padding top from body
+        document.body.style.paddingTop = '0';
+      }
+    });
+  });
+
   $(document).ready(function () {
     $('#featureRb1').click(function () {
       $('#submit_form').attr('action', "{% url 'result_page' %}");
@@ -188,10 +205,10 @@ Sample page
   function select_feature(rbid) {
     smoothScroll(document.getElementById('feature'));
     rbid.checked = true;
-    if($('#featureRb1').is(':checked')) { $('#submit_form').attr('action', "{% url 'result_page' %}"); }
-    else if($('#featureRb2').is(':checked')) { $('#submit_form').attr('action', "{% url 'fingerprint_page' %}"); }
-    else if($('#featureRb3').is(':checked')) { $('#submit_form').attr('action', "{% url 'druglikeness_page' %}"); }
-};
+    if ($('#featureRb1').is(':checked')) { $('#submit_form').attr('action', "{% url 'result_page' %}"); }
+    else if ($('#featureRb2').is(':checked')) { $('#submit_form').attr('action', "{% url 'fingerprint_page' %}"); }
+    else if ($('#featureRb3').is(':checked')) { $('#submit_form').attr('action', "{% url 'druglikeness_page' %}"); }
+  };
 </script>
 
 <!-- Loading animation after submit -->

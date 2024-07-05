@@ -6,14 +6,16 @@
 </li>
 {%endblock%}
 {% block body %}
-<div class="container">
+<div class="mt-5">&nbsp;</div>
+<div class="container mt-5">
     <h1 class="h1 p-3">Molecular descriptor results</h1>
     {% if results%}
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Smile notation</th>
+                    <th>Smile notation&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                            title="A notation that allows a user to represent a chemical structure in a way that can be used by the computer. It encodes the structure of a molecule using short ASCII strings"></i></th>
                     {% for result in results %}
                     <th>{{ result.smiles }}</th>
                     {% endfor %}
@@ -21,265 +23,309 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Molecular Formula</td>
+                    <td>Molecular Formula&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A way of expressing the number and type of atoms in a molecule (e.g., C6H12O6 for glucose)"></i></td>
                     {% for result in results %}
                     <td>{{ result.molecular_formula }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Molecular Weight</td>
+                    <td>Molecular Weight&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The sum of the atomic weights of all atoms in a molecule, typically measured in Daltons or atomic mass units (amu)"></i></td>
                     {% for result in results %}
                     <td>{{ result.molecular_weight }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>logP</td>
+                    <td>logP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="(Partition Coefficient): The logarithm of the partition coefficient (P), which measures the lipophilicity of a compound, indicating how it distributes between a hydrophobic (oil) phase and a hydrophilic (water) phase"></i></td>
                     {% for result in results %}
                     <td>{{ result.logP }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>TPSA</td>
+                    <td>TPSA&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="(Topological Polar Surface Area): The surface area of polar atoms (usually oxygen and nitrogen) in a molecule, which can affect the molecule’s ability to interact with biological membranes"></i></td>
                     {% for result in results %}
                     <td>{{ result.tpsa }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num Rotatable Bonds</td>
+                    <td>Num Rotatable Bonds&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of single bonds around which the molecule can rotate, affecting the molecule’s flexibility"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_rotatable_bonds }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num H Acceptors</td>
+                    <td>Num H Acceptors&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of hydrogen bond acceptors in a molecule, typically oxygen and nitrogen atoms"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_h_acceptors }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num H Donors</td>
+                    <td>Num H Donors&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of hydrogen bond donors in a molecule, typically NH or OH groups"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_h_donors }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num Heavy Atoms</td>
+                    <td>Num Heavy Atoms&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of non-hydrogen atoms in a molecule"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_heavy_atoms }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Molar Refractivity</td>
+                    <td>Molar Refractivity&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A measure of the total polarizability of a molecule, relating to its size and electronic distribution"></i></td>
                     {% for result in results %}
                     <td>{{ result.molar_refractivity }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Fraction CSP3</td>
+                    <td>Fraction CSP3&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The fraction of carbon atoms that are sp3 hybridized (tetrahedral geometry), which is a measure of the saturation of the molecule"></i></td>
                     {% for result in results %}
                     <td>{{ result.fraction_csp3 }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>logD</td>
+                    <td>logD&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The distribution coefficient, similar to LogP but pH-dependent, representing the ratio of compound concentration between octanol and water"></i></td>
                     {% for result in results %}
                     <td>{{ result.logD }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>logS</td>
+                    <td>logS&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The logarithm of the solubility of the compound in water, important for drug absorption and distribution"></i></td>
                     {% for result in results %}
                     <td>{{ result.logS }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Bioavailability Score</td>
+                    <td>Bioavailability Score&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="An estimate of the fraction of an administered drug that reaches the systemic circulation and is available for activity"></i></td>
                     {% for result in results %}
                     <td>{{ result.bioavailability_score }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num Rings</td>
+                    <td>Num Rings&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of ring structures in the molecule"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_rings }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num Hetero Atoms</td>
+                    <td>Num Hetero Atoms&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of atoms in a molecule that are neither carbon nor hydrogen (e.g., nitrogen, oxygen)"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_hetero_atoms }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Formal Charge</td>
+                    <td>Formal Charge&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The charge assigned to an atom in a molecule, assuming equal sharing of electrons in bonds"></i></td>
                     {% for result in results %}
                     <td>{{ result.formal_charge }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Num Rigid Bonds</td>
+                    <td>Num Rigid Bonds&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of double bonds and bonds in rings, which restrict the flexibility of the molecule"></i></td>
                     {% for result in results %}
                     <td>{{ result.num_rigid_bonds }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Polar Surface Area</td>
+                    <td>Polar Surface Area&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Similar to TPSA, it represents the area of a molecule that is polar"></i></td>
                     {% for result in results %}
                     <td>{{ result.polar_surface_area }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>SP3 Count</td>
+                    <td>SP3 Count&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of sp3 hybridized atoms, indicating the presence of tetrahedral geometry"></i></td>
                     {% for result in results %}
                     <td>{{ result.sp3_count }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Radical Electrons</td>
+                    <td>Radical Electrons&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of unpaired electrons in a molecule"></i></td>
                     {% for result in results %}
                     <td>{{ result.radical_electrons }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Valence Electrons</td>
+                    <td>Valence Electrons&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The number of electrons in the outermost shell of an atom that can participate in forming chemical bonds"></i></td>
                     {% for result in results %}
                     <td>{{ result.valence_electrons }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Heavy Atom Molecular Weight</td>
+                    <td>Heavy Atom Molecular Weight&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The molecular weight considering only the heavy atoms (non-hydrogen)"></i></td>
                     {% for result in results %}
                     <td>{{ result.heavy_atom_molecular_weight }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Exact Molecular Weight</td>
+                    <td>Exact Molecular Weight&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The precise molecular weight calculated based on the most common isotopes of each element"></i></td>
                     {% for result in results %}
                     <td>{{ result.exact_molecular_weight }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>QED</td>
+                    <td>QED&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="(Quantitative Estimate of Drug-likeness): A score that assesses how drug-like a compound is based on various molecular properties"></i></td>
                     {% for result in results %}
                     <td>{{ result.qed }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>P-Glycoprotein</td>
+                    <td>P-Glycoprotein&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A protein that pumps foreign substances out of cells, affecting drug absorption and resistance"></i></td>
                     {% for result in results %}
                     <td>{{ result.ab_p_glycoprotein }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Human Intestinal Absorption</td>
+                    <td>Human Intestinal Absorption&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A measure of how well a compound is absorbed in the human intestines"></i></td>
                     {% for result in results %}
                     <td>{{ result.ab_human_intestinal_absorption }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Protein Binding Percentage</td>
+                    <td>Protein Binding Percentage&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The percentage of the drug that binds to plasma proteins, affecting its distribution and activity"></i></td>
                     {% for result in results %}
                     <td>{{ result.ab_protein_binding_percentage }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Blood-Brain Barrier</td>
+                    <td>Blood-Brain Barrier&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The ability of a compound to cross the blood-brain barrier, which is critical for CNS-active drugs"></i></td>
                     {% for result in results %}
                     <td>{{ result.ds_blood_brain_barrier }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Fraction Unbound</td>
+                    <td>Fraction Unbound&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The proportion of the drug that is not bound to proteins in the blood and is free to act on target sites"></i></td>
                     {% for result in results %}
                     <td>{{ result.ds_fraction_unbound }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>AlogP</td>
+                    <td>AlogP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Different methods for calculating the logP value, reflecting different computational approaches"></i></td>
                     {% for result in results %}
                     <td>{{ result.li_alogp }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>XlogP</td>
+                    <td>XlogP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Different methods for calculating the logP value, reflecting different computational approaches"></i></td>
                     {% for result in results %}
                     <td>{{ result.li_xlogp }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>IlogP</td>
+                    <td>IlogP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Different methods for calculating the logP value, reflecting different computational approaches"></i></td>
                     {% for result in results %}
                     <td>{{ result.li_ilogp }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>WlogP</td>
+                    <td>WlogP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Different methods for calculating the logP value, reflecting different computational approaches"></i></td>
                     {% for result in results %}
                     <td>{{ result.li_wlogp }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Metabolism</td>
+                    <td>Metabolism&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The process by which a drug is chemically altered in the body, primarily by liver enzymes"></i></td>
                     {% for result in results %}
                     <td>{{ result.metabolism }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Clearance</td>
+                    <td>Clearance&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The rate at which a drug is removed from the body, affecting its duration of action"></i></td>
                     {% for result in results %}
                     <td>{{ result.ex_clearance }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Intrinsic Clearance</td>
+                    <td>Intrinsic Clearance&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The ability of the liver to clear a drug, independent of blood flow"></i></td>
                     {% for result in results %}
                     <td>{{ result.ex_intrinsic_clearance }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Half-Life</td>
+                    <td>Half-Life&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="The time it takes for the concentration of a drug in the blood to reduce by half"></i></td>
                     {% for result in results %}
                     <td>{{ result.ex_half_life }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>High logP</td>
+                    <td>High logP&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Indicates high lipophilicity, which can lead to better cell membrane penetration but also potential issues with solubility and bioavailability"></i></td>
                     {% for result in results %}
                     <td>{{ result.tx_high_logP }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Toxicity Score</td>
+                    <td>Toxicity Score&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="An estimate of the potential toxicity of a compound"></i></td>
                     {% for result in results %}
                     <td>{{ result.tx_toxicity_score }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Lipinski Rule</td>
+                    <td>Lipinski Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A set of rules (often called the (Rule of 5)) to evaluate drug-likeness based on molecular properties"></i></td>
                     {% for result in results %}
                     <td>{{ result.dl_lipinski_rule }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Veber Rule</td>
+                    <td>Veber Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Criteria based on molecular flexibility and polar surface area for oral bioavailability"></i></td>
                     {% for result in results %}
                     <td>{{ result.dl_veber_rule }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Ghose Rule</td>
+                    <td>Ghose Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="A rule considering molecular weight, logP, molar refractivity, and the number of atoms for drug-likeness"></i></td>
                     {% for result in results %}
                     <td>{{ result.dl_ghose_rule }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Egan Rule</td>
+                    <td>Egan Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Criteria based on logP and polar surface area for assessing the potential of oral absorption"></i></td>
                     {% for result in results %}
                     <td>{{ result.dl_egan_rule }}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>Pfizer Rule</td>
+                    <td>Pfizer Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Guidelines to evaluate the potential success of a compound based on physicochemical properties"></i></td>
                     {% for result in results %}
                     <td>{{ result.dl_pfizer_rule }}</td>
                     {% endfor %}
@@ -295,6 +341,9 @@
     </form>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('navbar_top').classList.add('fixed-top');
+        });
         // Set the JSON data from the script tag to the hidden input
         document.getElementById('results').value = JSON.stringify(JSON.parse(document.getElementById('results_data').textContent));
     </script>
