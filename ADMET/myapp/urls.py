@@ -43,9 +43,13 @@ urlpatterns = [
     path('download_fingerprint/', views.download_fingerprint, name='download_fingerprint'),
     path('fingerprint/', views.calculate_fingerprint, name='calculate_fingerprint'),
     path('download/morgan/', views.download_morgan_csv, name='download_morgan_csv'),
+    path('fingerprint_page/morgan_new/', views.download_new_morgan_csv, name='download_new_morgan_csv'),
     path('download/maccs/', views.download_maccs_csv, name='download_maccs_csv'),
+    path('fingerprint_page/maccs_new/', views.download_new_maccs_csv, name='download_new_maccs_csv'),
     path('download/torsion/', views.download_torsion_csv, name='download_torsion_csv'),
+    path('fingerprint_page/torsion_new/', views.download_new_torsion_csv, name='download_new_torsion_csv'),
     path('download/rdk/', views.download_rdk_csv, name='download_rdk_csv'),
+    path('fingerprint/rdk/', views.download_rdk_csv, name='download_new_rdk_csv'),
     path('', views.home, name='home'),
     path('predict/', views.predict, name='predict'),
 ]

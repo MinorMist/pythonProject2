@@ -27,32 +27,32 @@ def result(request):
 def calculate_new_fingerprint(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
+        # mol = Chem.MolFromSmiles(smiles)
 
-        # Morgan fingerprint
-        fingerprint = AllChem.GetMorganFingerprintAsBitVect(
-            mol, radius=2, nBits=1024)
-        fingerprint = [int(bit) for bit in fingerprint.ToBitString()]
+        # # Morgan fingerprint
+        # fingerprint = AllChem.GetMorganFingerprintAsBitVect(
+        #     mol, radius=2, nBits=1024)
+        # fingerprint = [int(bit) for bit in fingerprint.ToBitString()]
 
-        # MACCS fingerprint
-        maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
-        maccs_fingerprint = [int(bit)
-                             for bit in maccs_fingerprint.ToBitString()]
+        # # MACCS fingerprint
+        # maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
+        # maccs_fingerprint = [int(bit)
+        #                      for bit in maccs_fingerprint.ToBitString()]
 
-        # Topological Torsion fingerprint
-        torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
-            mol)
-        torsion_fingerprint = [int(bit)
-                               for bit in torsion_fingerprint.ToBitString()]
+        # # Topological Torsion fingerprint
+        # torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
+        #     mol)
+        # torsion_fingerprint = [int(bit)
+        #                        for bit in torsion_fingerprint.ToBitString()]
 
-        # RDKit fingerprint
-        rdk_fingerprint = RDKFingerprint(mol)
-        rdk_fingerprint = [int(bit) for bit in rdk_fingerprint.ToBitString()]
+        # # RDKit fingerprint
+        # rdk_fingerprint = RDKFingerprint(mol)
+        # rdk_fingerprint = [int(bit) for bit in rdk_fingerprint.ToBitString()]
 
-        fingerprints = {'fingerprint': fingerprint, 'smiles': smiles, 'maccs_fingerprint': maccs_fingerprint,
-                        'torsion_fingerprint': torsion_fingerprint, 'rdk_fingerprint': rdk_fingerprint, }
+        # fingerprints = {'fingerprint': fingerprint, 'smiles': smiles, 'maccs_fingerprint': maccs_fingerprint,
+        #                 'torsion_fingerprint': torsion_fingerprint, 'rdk_fingerprint': rdk_fingerprint, }
 
-        return render(request, 'myapp/fingerprint_page.html', {'fingerprints': fingerprints})
+        return render(request, 'myapp/fingerprint_page.html', {'smiles': smiles})
     else:
         return render(request, 'myapp/fingerprint_page.html')
 
@@ -65,7 +65,7 @@ def calculate_new_druglikeness(request):
 def calculate_new(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        smiles_list = [s.strip() for s in smiles.split('\n')]
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
 
         results = []
         for s in smiles_list:
@@ -281,6 +281,116 @@ def download_fingerprint(request):
     return HttpResponse("Method not allowed", status=405)
 
 
+def download_new_morgan_csv(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="morgan_fingerprint.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the Morgan fingerprint
+            morgan_fingerprint = AllChem.GetMorganFingerprintAsBitVect(
+                mol, radius=2, nBits=1024)
+            morgan_fingerprint = [int(bit)
+                                  for bit in morgan_fingerprint.ToBitString()]
+
+            # Prepare the CSV data
+            row = [s] + morgan_fingerprint
+            writer.writerow(row)
+        return response
+    else:
+        return render(request, 'myapp/fingerprint_page.html')
+
+
+def download_new_maccs_csv(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="maccs_fingerprint.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        # Calculate the MACCS fingerprint
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
+            maccs_fingerprint = [int(bit)
+                                 for bit in maccs_fingerprint.ToBitString()]
+
+        # Prepare the CSV data
+            row = [s] + maccs_fingerprint
+            writer.writerow(row)
+        return response
+    else:
+        return render(request, 'myapp/fingerprint_page.html')
+
+
+def download_new_torsion_csv(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="torsion_fingerprint.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the Topological Torsion fingerprint
+            torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
+                mol)
+            torsion_fingerprint = [int(bit)
+                                   for bit in torsion_fingerprint.ToBitString()]
+
+            fieldnames = ['Fingerprint', 'bits']
+            rows = [
+                ['Topological Torsion Fingerprint'] + torsion_fingerprint,
+            ]
+            # Prepare the CSV data
+            row = [s] + torsion_fingerprint
+            writer.writerow(row)
+        return response
+    else:
+        return render(request, 'myapp/fingerprint_page.html')
+
+
+def download_new_rdk_csv(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="rdk_fingerprint.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the RDKit fingerprint
+            rdk_fingerprint = Chem.RDKFingerprint(mol)
+            rdk_fingerprint = [int(bit)
+                               for bit in rdk_fingerprint.ToBitString()]
+            # Prepare the CSV data
+            row = [s] + rdk_fingerprint
+            writer.writerow(row)
+        return response
+    else:
+        return render(request, 'myapp/fingerprint_page.html')
+
+
+# --------------------------------------
 def download_morgan_csv(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
@@ -456,7 +566,7 @@ print("Accuracy:", accuracy)
 def predict(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        smiles_list = [s.strip() for s in smiles.split('\n')]
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
 
         # Extract features from the input SMILES
         input_features = extract_descriptors(smiles_list)

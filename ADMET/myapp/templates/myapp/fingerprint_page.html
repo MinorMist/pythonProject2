@@ -11,64 +11,66 @@
 
     <h1 class="h1 p-3">Fingerprint results</h1>
     <br>
-    <h3 class="h3 p-2">{{fingerprints.smiles}}</h3>
+    <h3 class="h3 p-2">{{smiles}}</h3>
     <br>
-    <div class="border border-dark container">
+    <div class="border border-primary container">
         <div class="row justify-content-center align-items-center">
-            <h4 class="h4 p-3 col">Morgan fingerprint</h4>
-            <div class="col-auto">
-                <button class="btn-sm btn-dark"
-                    onclick="javascript:copyToClipboard(document.getElementById('morganFp'));">Copy to clipboard &nbsp;
-                    <i class="bi bi-clipboard"></i></button>
-            </div>
-
+            <form class="text-center row align-items-center justify_content_between" id="download_form"
+                action="{% url 'download_new_morgan_csv' %}" method="post">
+                {% csrf_token %}
+                <h4 class="h4 p-3 col">Morgan fingerprint</h4>
+                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                <div class="col-auto">
+                    <button class="btn-sm btn-dark" onclick="">Download
+                </div>
+            </form>
         </div>
-        <p class="p" id="morganFp">{{fingerprints.fingerprint}}</p>
     </div>
 
     <br>
-    <div class="border border-dark container">
+    <div class="border border-primary container">
         <div class="row justify-content-center align-items-center">
-            <h4 class="h4 p-3 col">MACCS fingerprint</h4>
-            <div class="col-auto">
-                <button class="btn-sm btn-dark"
-                    onclick="javascript:copyToClipboard(document.getElementById('maccsFp'));">Copy to clipboard &nbsp;
-                    <i class="bi bi-clipboard"></i></button>
-            </div>
+            <form class="text-center row align-items-center justify_content_between" id="download_form"
+                action="{% url 'download_new_maccs_csv' %}" method="post">
+                {% csrf_token %}
+                <h4 class="h4 p-3 col">MACCS fingerprint</h4>
+                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                <div class="col-auto">
+                    <button class="btn-sm btn-dark" onclick="">Download
+                </div>
+            </form>
         </div>
-        <p class="p" id="maccsFp">{{fingerprints.maccs_fingerprint}}</p>
     </div>
 
     <br>
-    <div class="border border-dark container">
+    <div class="border border-primary container">
         <div class="row justify-content-center align-items-center">
-            <h4 class="h4 p-3 col">Torsion fingerprint</h4>
-            <div class="col-auto">
-                <button class="btn-sm btn-dark"
-                    onclick="javascript:copyToClipboard(document.getElementById('torsionFp'));">Copy to clipboard &nbsp;
-                    <i class="bi bi-clipboard"></i></button>
-            </div>
+            <form class="text-center row align-items-center justify_content_between" id="download_form"
+                action="{% url 'download_new_torsion_csv' %}" method="post">
+                {% csrf_token %}
+                <h4 class="h4 p-3 col">Torsion fingerprint</h4>
+                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                <div class="col-auto">
+                    <button class="btn-sm btn-dark" onclick="">Download
+                </div>
+            </form>
         </div>
-        <p class="p" id="torsionFp">{{fingerprints.torsion_fingerprint}}</p>
     </div>
 
     <br>
-    <div class="border border-dark container">
+    <div class="border border-primary container">
         <div class="row justify-content-center align-items-center">
-            <h4 class="h4 p-3 col">Rdk fingerprint</h4>
-            <div class="col-auto">
-                <button class="btn-sm btn-dark" onclick="javascript:copyToClipboard(document.getElementById('rdkFp'));">Copy to clipboard &nbsp;
-                    <i class="bi bi-clipboard"></i></button>
-            </div>
+            <form class="text-center row align-items-center justify_content_between" id="download_form"
+                action="{% url 'download_new_rdk_csv' %}" method="post">
+                {% csrf_token %}
+                <h4 class="h4 p-3 col">Rdk fingerprint</h4>
+                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                <div class="col-auto">
+                    <button class="btn-sm btn-dark" onclick="">Download
+                </div>
+            </form>
         </div>
-        <p class="p" id="rdkFp">{{fingerprints.rdk_fingerprint}}</p>
     </div>
-    <form class="text-center m-5" id="download_form" action="{% url 'download_fingerprint' %}" method="post">
-        {% csrf_token %}
-        {{ fingerprints|json_script:"fingerprints_data" }}
-        <input type="hidden" name="fingerprints" id="fingerprints" value="">
-        <input id="downloadFp_btn" type="submit" value="Download CSV" class="btn btn-primary mt-3">
-    </form>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
