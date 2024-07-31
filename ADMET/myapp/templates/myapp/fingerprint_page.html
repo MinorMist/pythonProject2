@@ -7,68 +7,84 @@
 {%endblock%}
 {%block body%}
 <div class="mt-5">&nbsp;</div>
-<div class="container mt-5">
+<div class="container vh-75 mt-5">
 
     <h1 class="h1 p-3">Fingerprint results</h1>
-    <br>
-    <h3 class="h3 p-2">{{smiles}}</h3>
-    <br>
-    <div class="border border-primary container">
-        <div class="row justify-content-center align-items-center">
-            <form class="text-center row align-items-center justify_content_between" id="download_form"
-                action="{% url 'download_new_morgan_csv' %}" method="post">
-                {% csrf_token %}
-                <h4 class="h4 p-3 col">Morgan fingerprint</h4>
-                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                <div class="col-auto">
-                    <button class="btn-sm btn-dark" onclick="">Download
-                </div>
-            </form>
+    <!-- ----------Cards------------>
+    <div class="row mt-3 w-100">
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">Morgan Fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_morgan_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
         </div>
-    </div>
-
-    <br>
-    <div class="border border-primary container">
-        <div class="row justify-content-center align-items-center">
-            <form class="text-center row align-items-center justify_content_between" id="download_form"
-                action="{% url 'download_new_maccs_csv' %}" method="post">
-                {% csrf_token %}
-                <h4 class="h4 p-3 col">MACCS fingerprint</h4>
-                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                <div class="col-auto">
-                    <button class="btn-sm btn-dark" onclick="">Download
-                </div>
-            </form>
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">MACCS fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_maccs_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
         </div>
-    </div>
-
-    <br>
-    <div class="border border-primary container">
-        <div class="row justify-content-center align-items-center">
-            <form class="text-center row align-items-center justify_content_between" id="download_form"
-                action="{% url 'download_new_torsion_csv' %}" method="post">
-                {% csrf_token %}
-                <h4 class="h4 p-3 col">Torsion fingerprint</h4>
-                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                <div class="col-auto">
-                    <button class="btn-sm btn-dark" onclick="">Download
-                </div>
-            </form>
+        <div class="w-100"></div>
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">Torsion fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_torsion_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
         </div>
-    </div>
-
-    <br>
-    <div class="border border-primary container">
-        <div class="row justify-content-center align-items-center">
-            <form class="text-center row align-items-center justify_content_between" id="download_form"
-                action="{% url 'download_new_rdk_csv' %}" method="post">
-                {% csrf_token %}
-                <h4 class="h4 p-3 col">Rdk fingerprint</h4>
-                <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                <div class="col-auto">
-                    <button class="btn-sm btn-dark" onclick="">Download
-                </div>
-            </form>
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">Rdk fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_rdk_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">Atom Pair fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_atom_pair_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
+        </div>
+        <div class="card col-lg m-1">
+            <div class="card-body">
+                <h5 class="card-title">Avalon fingerprint</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_avalon_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                </form>
+            </div>
         </div>
     </div>
 

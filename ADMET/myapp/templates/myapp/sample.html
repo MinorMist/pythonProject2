@@ -198,7 +198,7 @@ Sample page
       $('#submit_form').attr('action', "{% url 'fingerprint_page' %}");
     });
     $('#featureRb3').click(function () {
-      $('#submit_form').attr('action', "{% url 'druglikeness_page' %}");
+      $('#submit_form').attr('action', "{% url 'predict' %}");
     });
   });
 
@@ -207,25 +207,8 @@ Sample page
     rbid.checked = true;
     if ($('#featureRb1').is(':checked')) { $('#submit_form').attr('action', "{% url 'result_page' %}"); }
     else if ($('#featureRb2').is(':checked')) { $('#submit_form').attr('action', "{% url 'fingerprint_page' %}"); }
-    else if ($('#featureRb3').is(':checked')) { $('#submit_form').attr('action', "{% url 'druglikeness_page' %}"); }
+    else if ($('#featureRb3').is(':checked')) { $('#submit_form').attr('action', "{% url 'predict' %}"); }
   };
 </script>
-
-<!-- Loading animation after submit -->
-<!-- <script>
-
-  $(document).ready(function() {
-      $("#submit_btn").click(function() {
-          // disable button
-          $(this).prop("disabled", true);
-          // add spinner to button
-          $(this).html(
-          `Submitting`
-          );
-          $("#submit_form").submit();
-          $("#submit_btn").prop("disabled",false).html('Submit');
-      });
-  });
-</script> -->
 
 {%endblock%}

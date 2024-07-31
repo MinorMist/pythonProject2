@@ -6,12 +6,36 @@
 {%endblock%}
 {%block body%}
 <div class="mt-5">&nbsp;</div>
-<div class="container vh-100 text-center mt-5">
+<div class="container text-center mt-5">
     <h1 class="h1 p-5">Druglikeness module</h1>
+    {% if results%}
+    <div class="table-responsive text-center">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Smiles</th>
+                    <th scope="col">Prediction</th>
+                    <th scope="col">Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in results %}
+                <tr>
+                    <td>{{ res.SMILES }}</td>
+                    <td>{{ res.Prediction }}</td>
+                    <td>{{ res.accuracy }}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    {%else%}
+    <h3 class="h3">No result</h3>
+    {% endif %}
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById('navbar_top').classList.add('fixed-top');
-        });
+        document.getElementById('navbar_top').classList.add('fixed-top');
+    });
 </script>
 {%endblock%}

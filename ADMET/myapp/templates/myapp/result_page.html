@@ -303,6 +303,13 @@
                     {% endfor %}
                 </tr>
                 <tr>
+                    <td>Lipinski Rule conditions&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
+                        title="Result of lipinski rule"></i></td>
+                    {% for result in results %}
+                    <td>{{ result.dl_lipinski_conditions }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
                     <td>Veber Rule&nbsp;&nbsp;&nbsp;<i class="bi bi-info-circle info-btn"
                         title="Criteria based on molecular flexibility and polar surface area for oral bioavailability"></i></td>
                     {% for result in results %}

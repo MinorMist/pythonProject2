@@ -30,27 +30,19 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-
-from . import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sample/', views.sample, name='sample'),
     path('result_page/', views.calculate_new, name='result_page'),
     path('fingerprint_page/', views.calculate_new_fingerprint, name='fingerprint_page'),
-    path('druglikeness_page/', views.calculate_new_druglikeness, name='druglikeness_page'),
+    #path('druglikeness_page/', views.calculate_new_druglikeness, name='druglikeness_page'),
     path('download/', views.download, name='download'),
-    path('download_fingerprint/', views.download_fingerprint, name='download_fingerprint'),
-    path('fingerprint/', views.calculate_fingerprint, name='calculate_fingerprint'),
-    path('download/morgan/', views.download_morgan_csv, name='download_morgan_csv'),
     path('fingerprint_page/morgan_new/', views.download_new_morgan_csv, name='download_new_morgan_csv'),
-    path('download/maccs/', views.download_maccs_csv, name='download_maccs_csv'),
     path('fingerprint_page/maccs_new/', views.download_new_maccs_csv, name='download_new_maccs_csv'),
-    path('download/torsion/', views.download_torsion_csv, name='download_torsion_csv'),
     path('fingerprint_page/torsion_new/', views.download_new_torsion_csv, name='download_new_torsion_csv'),
-    path('download/rdk/', views.download_rdk_csv, name='download_rdk_csv'),
-    path('fingerprint/rdk/', views.download_rdk_csv, name='download_new_rdk_csv'),
-    path('', views.home, name='home'),
-    path('predict/', views.predict, name='predict'),
+    path('fingerprint_page/rdk_new/', views.download_new_rdk_csv, name='download_new_rdk_csv'),
+    path('fingerprint_page/avalon_new/', views.download_new_avalon_csv, name='download_new_avalon_csv'),
+    path('fingerprint_page/atom_pair_new/', views.download_new_atom_pair_csv, name='download_new_atom_pair_csv'),
+    path('druglikeness_page/', views.predict, name='predict'),
 ]
 

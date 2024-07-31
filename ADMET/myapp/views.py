@@ -1,16 +1,27 @@
+# JSON imports
+
 from django.http import JsonResponse
 import json
+
+# Django imports
 from django.http import HttpResponse
-from rdkit.Chem import Descriptors, rdMolDescriptors, AllChem, QED, EState
+from django.shortcuts import render
+
+# RDKit imports
+from rdkit import Chem
+from rdkit.Chem import Descriptors, rdMolDescriptors, AllChem, QED, MACCSkeys, RDKFingerprint, Lipinski, Crippen
+from rdkit.Chem.AtomPairs import Torsions, Pairs
+from rdkit.Avalon import pyAvalonTools
+from rdkit.Chem.EState import EState
+
+# Scikit-learn imports
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from rdkit.Chem.EState import EState
-from rdkit.Chem import RDKFingerprint
-from rdkit.Chem import Descriptors
-from rdkit.Chem import MACCSkeys
-from django.shortcuts import render
-from rdkit import Chem
+
+# XGBoost import
 import xgboost as xgb
+
+# Other imports
 import pandas as pd
 import numpy as np
 import csv
@@ -27,41 +38,79 @@ def result(request):
 def calculate_new_fingerprint(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        # mol = Chem.MolFromSmiles(smiles)
-
-        # # Morgan fingerprint
-        # fingerprint = AllChem.GetMorganFingerprintAsBitVect(
-        #     mol, radius=2, nBits=1024)
-        # fingerprint = [int(bit) for bit in fingerprint.ToBitString()]
-
-        # # MACCS fingerprint
-        # maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
-        # maccs_fingerprint = [int(bit)
-        #                      for bit in maccs_fingerprint.ToBitString()]
-
-        # # Topological Torsion fingerprint
-        # torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
-        #     mol)
-        # torsion_fingerprint = [int(bit)
-        #                        for bit in torsion_fingerprint.ToBitString()]
-
-        # # RDKit fingerprint
-        # rdk_fingerprint = RDKFingerprint(mol)
-        # rdk_fingerprint = [int(bit) for bit in rdk_fingerprint.ToBitString()]
-
-        # fingerprints = {'fingerprint': fingerprint, 'smiles': smiles, 'maccs_fingerprint': maccs_fingerprint,
-        #                 'torsion_fingerprint': torsion_fingerprint, 'rdk_fingerprint': rdk_fingerprint, }
-
         return render(request, 'myapp/fingerprint_page.html', {'smiles': smiles})
     else:
         return render(request, 'myapp/fingerprint_page.html')
 
 
 def calculate_new_druglikeness(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+
     return render(request, 'myapp/druglikeness_page.html')
 
 
+def lipinski_trial(mol):
+    '''
+    Returns which of Lipinski's rules a molecule has failed, or an empty list
+
+    Lipinski's rules are:
+    Hydrogen bond donors <= 5
+    Hydrogen bond acceptors <= 10
+    Molecular weight < 500 daltons
+    logP < 5
+    '''
+    passed = []
+    failed = []
+
+    num_hdonors = Lipinski.NumHDonors(mol)
+    num_hacceptors = Lipinski.NumHAcceptors(mol)
+    mol_weight = Descriptors.MolWt(mol)
+    mol_logp = Crippen.MolLogP(mol)
+
+    failed = []
+
+    if num_hdonors > 5:
+        failed.append('Over 5 H-bond donors, found %s' % num_hdonors)
+    else:
+        passed.append('Found %s H-bond donors' % num_hdonors)
+
+    if num_hacceptors > 10:
+        failed.append('Over 10 H-bond acceptors, found %s'
+                      % num_hacceptors)
+    else:
+        passed.append('Found %s H-bond acceptors' % num_hacceptors)
+
+    if mol_weight >= 500:
+        failed.append('Molecular weight over 500, calculated %s'
+                      % mol_weight)
+    else:
+        passed.append('Molecular weight: %s' % mol_weight)
+
+    if mol_logp >= 5:
+        failed.append('Log partition coefficient over 5, calculated %s'
+                      % mol_logp)
+    else:
+        passed.append('Log partition coefficient: %s' % mol_logp)
+
+    return passed, failed
+
+
+def lipinski_pass(smiles):
+    '''
+    Wraps around lipinski trial, but returns a simple pass/fail True/False
+    '''
+    passed, failed = lipinski_trial(smiles)
+    if failed:
+        failed.insert(0,str(len(failed))+" Violated - ")
+        return False, failed
+    else:
+        passed.insert(0,str(len(passed))+" Passed - ")
+        return True, passed
+
 # Molecular descriptor calculator
+
+
 def calculate_new(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
@@ -73,6 +122,8 @@ def calculate_new(request):
             if mol is None:
                 results.append(None)
             else:
+                lip_result, lip_condition = lipinski_pass(mol)
+                lip_condition = ',\n '.join(map(str, lip_condition))
                 result = {
                     "smiles": s,
                     "molecular_formula": rdMolDescriptors.CalcMolFormula(mol),
@@ -114,7 +165,8 @@ def calculate_new(request):
                     "ex_half_life": 0.693 / (10 ** (-0.278 * Descriptors.MolLogP(mol) + 0.194 * Descriptors.TPSA(mol) + 0.018 * Descriptors.NumRotatableBonds(mol) - 0.223)),
                     "tx_high_logP": "True" if Descriptors.MolLogP(mol) > 5.0 else "False",
                     "tx_toxicity_score": Descriptors.MolLogP(mol) * Descriptors.NumHAcceptors(mol) / Descriptors.MolWt(mol),
-                    "dl_lipinski_rule": "True" if Descriptors.MolWt(mol) < 500 and Descriptors.MolLogP(mol) < 5.0 and Descriptors.NumHAcceptors(mol) < 10 and Descriptors.NumHDonors(mol) < 5 else "False",
+                    "dl_lipinski_rule": lip_result,
+                    "dl_lipinski_conditions": lip_condition,
                     "dl_veber_rule": "True" if Descriptors.TPSA(mol) < 140 and Descriptors.NumRotatableBonds(mol) < 10 else "False",
                     "dl_ghose_rule": "True" if 160 < Descriptors.MolWt(mol) < 480 and -0.4 < Descriptors.MolLogP(mol) < 5.6 and 40 < Descriptors.MolMR(mol) < 130 else "False",
                     "dl_egan_rule": "True" if Descriptors.MolLogP(mol) < 5.88 and Descriptors.TPSA(mol) < 131.6 else "False",
@@ -154,7 +206,7 @@ def download(request):
             'Heavy Atom Molecular Weight', 'Exact Molecular Weight', 'QED', 'P-Glycoprotein',
             'Human Intestinal Absorption', 'Protein Binding Percentage', 'Blood-Brain Barrier',
             'Fraction Unbound', 'AlogP', 'XlogP', 'IlogP', 'WlogP', 'Metabolism', 'Clearance',
-            'Intrinsic Clearance', 'Half-Life', 'High logP', 'Toxicity Score', 'Lipinski Rule',
+            'Intrinsic Clearance', 'Half-Life', 'High logP', 'Toxicity Score', 'Lipinski Rule', 'Lipinski conditions',
             'Veber Rule', 'Ghose Rule', 'Egan Rule', 'Pfizer Rule'
         ])
 
@@ -202,6 +254,7 @@ def download(request):
                 result.get('tx_high_logP', ''),
                 result.get('tx_toxicity_score', ''),
                 result.get('dl_lipinski_rule', ''),
+                result.get('dl_lipinski_conditions', ''),
                 result.get('dl_veber_rule', ''),
                 result.get('dl_ghose_rule', ''),
                 result.get('dl_egan_rule', ''),
@@ -213,72 +266,6 @@ def download(request):
     return HttpResponse("Method not allowed", status=405)
 
 ##### FINGERPRINT ########
-
-
-def calculate_fingerprint(request):
-    if request.method == 'POST':
-        smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
-
-        # Morgan fingerprint
-        fingerprint = AllChem.GetMorganFingerprintAsBitVect(
-            mol, radius=2, nBits=1024)
-        fingerprint = [int(bit) for bit in fingerprint.ToBitString()]
-
-        # MACCS fingerprint
-        maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
-        maccs_fingerprint = [int(bit)
-                             for bit in maccs_fingerprint.ToBitString()]
-
-        # Topological Torsion fingerprint
-        torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
-            mol)
-        torsion_fingerprint = [int(bit)
-                               for bit in torsion_fingerprint.ToBitString()]
-
-        # RDKit fingerprint
-        rdk_fingerprint = RDKFingerprint(mol)
-        rdk_fingerprint = [int(bit) for bit in rdk_fingerprint.ToBitString()]
-
-        return render(request, 'myapp/fingerprint.html',
-                      {'fingerprint': fingerprint, 'smiles': smiles, 'maccs_fingerprint': maccs_fingerprint,
-                       'torsion_fingerprint': torsion_fingerprint, 'rdk_fingerprint': rdk_fingerprint, })
-    else:
-        return render(request, 'myapp/form.html')
-
-
-def download_fingerprint(request):
-    if request.method == 'POST':
-        fingerprint_js = request.POST.get('fingerprints', '')
-
-        try:
-            fingerprints = json.loads(fingerprint_js)
-        except json.JSONDecodeError:
-            # Handle JSON decode error
-            return HttpResponse("Invalid JSON data", status=400)
-
-        # Initialize the response and writer
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="fingerprint.csv"'
-
-        writer = csv.writer(response)
-
-        # Write CSV headers
-        writer.writerow([
-            'SMILE', 'Morgan fingerprint', 'Maccs fingerprint', 'Torsion fingerprint', 'Rdk fingerprint'
-        ])
-
-        # Write CSV data
-        writer.writerow([fingerprints.get('smiles', ''),
-                         fingerprints.get('fingerprint', ''),
-                         fingerprints.get('maccs_fingerprint', ''),
-                         fingerprints.get('torsion_fingerprint', ''),
-                         fingerprints.get('rdk_fingerprint', '')
-                         ])
-
-        return response
-
-    return HttpResponse("Method not allowed", status=405)
 
 
 def download_new_morgan_csv(request):
@@ -390,126 +377,56 @@ def download_new_rdk_csv(request):
         return render(request, 'myapp/fingerprint_page.html')
 
 
-# --------------------------------------
-def download_morgan_csv(request):
+def download_new_atom_pair_csv(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="atom_pair_fingerprint.csv"'
 
-        # Calculate the Morgan fingerprint
-        morgan_fingerprint = AllChem.GetMorganFingerprintAsBitVect(
-            mol, radius=2, nBits=1024)
-        morgan_fingerprint = [int(bit)
-                              for bit in morgan_fingerprint.ToBitString()]
-
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the Atom pair fingerprint
+            atom_pair_fingerprint = Pairs.GetAtomPairFingerprintAsBitVect(mol)
+            atom_pair_fingerprint = [int(bit)
+                                 for bit in atom_pair_fingerprint.ToBitString()]
         # Prepare the CSV data
-        fieldnames = ['Fingerprint', 'Bits']
-        rows = [
-            ['Morgan Fingerprint'] + morgan_fingerprint,
-        ]
-
-        # Generate the CSV response
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="morgan_fingerprint.csv"'
-
-        writer = csv.writer(response)
-        writer.writerow(fieldnames)
-        writer.writerows(rows)
+            row = [s] + atom_pair_fingerprint
+            writer.writerow(row)
         return response
     else:
-        return render(request, 'myapp/form.html')
+        return render(request, 'myapp/fingerprint_page.html')
 
 
-def download_maccs_csv(request):
+def download_new_avalon_csv(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
-
-        # Calculate the MACCS fingerprint
-        maccs_fingerprint = MACCSkeys.GenMACCSKeys(mol)
-        maccs_fingerprint = [int(bit)
-                             for bit in maccs_fingerprint.ToBitString()]
-
-        # Prepare the CSV data
-        fieldnames = ['Fingerprint', 'bits']
-        rows = [
-            ['MACCS Fingerprint'] + maccs_fingerprint,
-        ]
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
 
         # Generate the CSV response
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="maccs_fingerprint.csv"'
+        response['Content-Disposition'] = 'attachment; filename="avalon_fingerprint.csv"'
 
         writer = csv.writer(response)
-        writer.writerow(fieldnames)
-        writer.writerows(rows)
-
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the Avalon fingerprint
+            avalon_fingerprint = pyAvalonTools.GetAvalonFP(mol, nBits=1024)
+            avalon_fingerprint = [int(bit)
+                              for bit in avalon_fingerprint.ToBitString()]
+            # Prepare the CSV data
+            row = [s] + avalon_fingerprint
+            writer.writerow(row)
         return response
     else:
-        return render(request, 'myapp/form.html')
+        return render(request, 'myapp/fingerprint_page.html')
 
-
-def download_torsion_csv(request):
-    if request.method == 'POST':
-        smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
-
-        # Calculate the Topological Torsion fingerprint
-        torsion_fingerprint = rdMolDescriptors.GetHashedTopologicalTorsionFingerprintAsBitVect(
-            mol)
-        torsion_fingerprint = [int(bit)
-                               for bit in torsion_fingerprint.ToBitString()]
-
-        fieldnames = ['Fingerprint', 'bits']
-        rows = [
-            ['Topological Torsion Fingerprint'] + torsion_fingerprint,
-        ]
-        # Generate the CSV response
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="torsion_fingerprint.csv"'
-
-        writer = csv.writer(response)
-        writer.writerow(fieldnames)
-        writer.writerows(rows)
-
-        return response
-    else:
-        return render(request, 'myapp/form.html')
-
-
-def download_rdk_csv(request):
-    if request.method == 'POST':
-        smiles = request.POST.get('smiles', '')
-        mol = Chem.MolFromSmiles(smiles)
-
-        # Calculate the RDKit fingerprint
-        rdk_fingerprint = Chem.RDKFingerprint(mol)
-        rdk_fingerprint = [int(bit) for bit in rdk_fingerprint.ToBitString()]
-
-        # Prepare the CSV data
-        fieldnames = ['Fingerprint', 'bits']
-        rows = [
-            ['RDKit Fingerprint'] + rdk_fingerprint,
-        ]
-
-        # Generate the CSV response
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="rdk_fingerprint.csv"'
-
-        writer = csv.writer(response)
-        writer.writerow(fieldnames)
-        writer.writerows(rows)
-
-        return response
-    else:
-        return render(request, 'myapp/form.html')
-
-
-def home(request):
-    return render(request, 'myapp/form.html')
 
 #####  END FINGERPRINT ########
-
 
 ##### PREDICTION ##############
 # Load the dataset containing SMILES and target values
@@ -566,7 +483,7 @@ print("Accuracy:", accuracy)
 def predict(request):
     if request.method == 'POST':
         smiles = request.POST.get('smiles', '')
-        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+        smiles_list = [s.strip() for s in smiles.split('\n')]
 
         # Extract features from the input SMILES
         input_features = extract_descriptors(smiles_list)
@@ -586,8 +503,8 @@ def predict(request):
             results.append(
                 {'SMILES': input_smiles, 'Prediction': druglikeness, 'accuracy': accuracy})
 
-        return render(request, 'myapp/predict.html', {'results': results})
+        return render(request, 'myapp/druglikeness_page.html', {'results': results})
 
     else:
-        return render(request, 'myapp/form.html')
-# END PREDICTION ###########                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+        return render(request, 'myapp/druglikeness_page.html')
+##### END PREDICTION ###########
