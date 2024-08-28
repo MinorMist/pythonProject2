@@ -32,12 +32,13 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sample/', views.sample, name='sample'),
+    path('', views.sample, name='sample'),
     path('result_page/', views.calculate_new, name='result_page'),
     path('fingerprint_page/', views.calculate_new_fingerprint, name='fingerprint_page'),
     #path('druglikeness_page/', views.calculate_new_druglikeness, name='druglikeness_page'),
     path('download/', views.download, name='download'),
     path('fingerprint_page/morgan_new/', views.download_new_morgan_csv, name='download_new_morgan_csv'),
+    path('fingerprint_page/morgan2048_new/', views.download_new_morgan2048_csv, name='download_new_morgan2048_csv'),
     path('fingerprint_page/maccs_new/', views.download_new_maccs_csv, name='download_new_maccs_csv'),
     path('fingerprint_page/torsion_new/', views.download_new_torsion_csv, name='download_new_torsion_csv'),
     path('fingerprint_page/rdk_new/', views.download_new_rdk_csv, name='download_new_rdk_csv'),

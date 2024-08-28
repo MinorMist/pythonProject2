@@ -15,24 +15,34 @@
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">Morgan Fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Morgan fingerprint encodes the atom groups of a chemical into a binary vector with length and radius as its two parameters. </p>
+                <p class="font-weight-bold">SMILEs notation with 1024 bit morgan fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_morgan_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
+                </form>
+                <hr>
+                <p class="font-weight-bold">SMILEs notation with 2048 bit morgan fingerprint.</p>
+                <form class="text-center row align-items-center justify_content_between" id="download_form"
+                    action="{% url 'download_new_morgan2048_csv' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">MACCS fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">A type of structural key fingerprint used in cheminformatics to represent chemical structures.</p>
+                <p class="font-weight-bold">SMILEs notation with 166 bit MACCS fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_maccs_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>
@@ -40,24 +50,26 @@
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">Torsion fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">A type of molecular fingerprint that captures information about the torsion angles between atoms in a molecule.</p>
+                <p class="font-weight-bold">SMILEs notation with 2048 bit Torsion fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_torsion_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">Rdk fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Fingerprints that are based on paths (or substructures) within a molecule and are commonly used for tasks like molecular similarity searching, clustering, and various cheminformatics applications.</p>
+                <p class="font-weight-bold">SMILEs notation with 2048 bit Rdk fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_rdk_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>
@@ -65,24 +77,26 @@
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">Atom Pair fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">A type of molecular fingerprint that captures the relationship between pairs of atoms in a molecule.</p>
+                <p class="font-weight-bold">SMILEs notation with 16383 bit Atom Pair fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_atom_pair_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>
         <div class="card col-lg m-1">
             <div class="card-body">
                 <h5 class="card-title">Avalon fingerprint</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">Avalon fingerprints are a type of molecular fingerprint that can be generated using the RDKit library with the AvalonTools plugin.</p>
+                <p class="font-weight-bold">SMILEs notation with 1024 bit Avalon fingerprint.</p>
                 <form class="text-center row align-items-center justify_content_between" id="download_form"
                     action="{% url 'download_new_avalon_csv' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="smiles" id="smiles" value="{{smiles}}">
-                    <button class="btn-sm btn-dark w-auto ml-2" onclick="">Download
+                    <button class="btn-sm btn-dark w-auto" onclick="">Download</button>
                 </form>
             </div>
         </div>

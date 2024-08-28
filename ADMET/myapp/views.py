@@ -206,7 +206,8 @@ def download(request):
             'Heavy Atom Molecular Weight', 'Exact Molecular Weight', 'QED', 'P-Glycoprotein',
             'Human Intestinal Absorption', 'Protein Binding Percentage', 'Blood-Brain Barrier',
             'Fraction Unbound', 'AlogP', 'XlogP', 'IlogP', 'WlogP', 'Metabolism', 'Clearance',
-            'Intrinsic Clearance', 'Half-Life', 'High logP', 'Toxicity Score', 'Lipinski Rule', 'Lipinski conditions',
+            'Intrinsic Clearance', 'Half-Life', 'High logP', 'Toxicity Score', 'Lipinski Rule',
+            #'Lipinski conditions',
             'Veber Rule', 'Ghose Rule', 'Egan Rule', 'Pfizer Rule'
         ])
 
@@ -254,7 +255,7 @@ def download(request):
                 result.get('tx_high_logP', ''),
                 result.get('tx_toxicity_score', ''),
                 result.get('dl_lipinski_rule', ''),
-                result.get('dl_lipinski_conditions', ''),
+                #result.get('dl_lipinski_conditions', ''),
                 result.get('dl_veber_rule', ''),
                 result.get('dl_ghose_rule', ''),
                 result.get('dl_egan_rule', ''),
@@ -284,6 +285,32 @@ def download_new_morgan_csv(request):
             # Calculate the Morgan fingerprint
             morgan_fingerprint = AllChem.GetMorganFingerprintAsBitVect(
                 mol, radius=2, nBits=1024)
+            morgan_fingerprint = [int(bit)
+                                  for bit in morgan_fingerprint.ToBitString()]
+
+            # Prepare the CSV data
+            row = [s] + morgan_fingerprint
+            writer.writerow(row)
+        return response
+    else:
+        return render(request, 'myapp/fingerprint_page.html')
+    
+def download_new_morgan2048_csv(request):
+    if request.method == 'POST':
+        smiles = request.POST.get('smiles', '')
+        smiles_list = [s.strip() for s in smiles.split('\n') if s.split()]
+
+        # Generate the CSV response
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="morgan_fingerprint.csv"'
+
+        writer = csv.writer(response)
+        writer.writerow(['Smiles', 'Bits'])
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            # Calculate the Morgan fingerprint
+            morgan_fingerprint = AllChem.GetMorganFingerprintAsBitVect(
+                mol, radius=2, nBits=2048)
             morgan_fingerprint = [int(bit)
                                   for bit in morgan_fingerprint.ToBitString()]
 
